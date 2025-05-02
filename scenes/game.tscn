@@ -13,13 +13,13 @@ size = Vector2(50, 50)
 script = ExtResource("1_lbhrr")
 
 [node name="Player" parent="." instance=ExtResource("2_iywne")]
-motion_mode = 1
 
 [node name="CameraRig" parent="." instance=ExtResource("3_p57ef")]
 
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_gee14")

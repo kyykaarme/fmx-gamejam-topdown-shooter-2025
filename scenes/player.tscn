@@ -18,11 +18,7 @@ mesh = SubResource("CapsuleMesh_hbu4s")
 shape = SubResource("CapsuleShape3D_hqvp4")
 
 [node name="Muzzle" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
-
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 0.5
