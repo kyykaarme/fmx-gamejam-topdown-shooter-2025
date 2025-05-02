@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var speed = 3.0
+var speed = 1.0
 var health = 30
 var damage = 10
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -12,9 +12,10 @@ func _physics_process(delta):
 		move_and_slide()
 		if is_colliding_with_player():
 			player.take_damage(damage)
-
+			
 func take_damage(amount):
 	health -= amount
+	print("Enemy hit, health: ", health)
 	if health <= 0:
 		queue_free()
 

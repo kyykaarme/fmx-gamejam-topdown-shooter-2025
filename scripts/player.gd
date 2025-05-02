@@ -34,6 +34,6 @@ func take_damage(amount):
 
 func _on_shoot_timer_timeout():
 	var projectile = projectile_scene.instantiate()
-	projectile.global_position = muzzle.global_position
-	projectile.global_rotation = global_rotation
 	get_tree().root.add_child(projectile)
+	projectile.call_deferred("set", "global_position", muzzle.global_position)
+	projectile.call_deferred("set", "global_rotation", global_rotation)
