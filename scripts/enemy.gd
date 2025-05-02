@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var speed = 1.0
+var speed = 0.5
 var health = 30
 var damage = 10
 @onready var player = get_tree().get_first_node_in_group("player")
