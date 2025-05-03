@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmjygqbn1k68g"]
+
+[ext_resource type="Material" uid="uid://n8hwd37nmgdr" path="res://Materials/obstacle_screen.tres" id="1_ox2kt"]
+[ext_resource type="ArrayMesh" uid="uid://cip0lcte61pj8" path="res://Models/obstacle_screen.obj" id="2_mshsw"]
+
+[node name="ObstacleScreen" type="MeshInstance3D"]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+material_override = ExtResource("1_ox2kt")
+mesh = ExtResource("2_mshsw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000915527, 5.24176, -0.0865479)
+visible = false
+use_collision = true
+size = Vector3(9.93445, 11.4835, 1.03882)
