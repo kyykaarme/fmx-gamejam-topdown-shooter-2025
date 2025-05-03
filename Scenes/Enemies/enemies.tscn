@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://kvu124vpgs4h"]
+[gd_scene load_steps=3 format=3 uid="uid://kvu124vpgs4h"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_1ytnk"]
 
-[node name="Enemies" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ytnk"]
+size = Vector3(1, 2, 1)
+
+[node name="Enemies" type="CharacterBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_1ytnk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1ytnk")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
