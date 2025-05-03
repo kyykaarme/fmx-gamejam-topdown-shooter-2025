@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://jv8m5pcakq4p"]
+
+[ext_resource type="Texture2D" uid="uid://ncaihe2dx7na" path="res://Materials/Textures/bird_DefaultMaterial_BaseColor.jpg" id="1_8m0lx"]
+[ext_resource type="Texture2D" uid="uid://rhhoh0e18q06" path="res://Materials/Textures/bird_DefaultMaterial_Roughness.jpg" id="2_w1ky1"]
+
+[resource]
+albedo_texture = ExtResource("1_8m0lx")
+roughness_texture = ExtResource("2_w1ky1")
