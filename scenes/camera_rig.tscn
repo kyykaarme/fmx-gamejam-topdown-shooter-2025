@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf0sf5tfy2i4s"]
+
+[ext_resource type="Script" uid="uid://cwt34pc6fyo7n" path="res://scripts/camera_rig.gd" id="1_5u1pv"]
+
+[node name="CameraRig" type="Node3D"]
+script = ExtResource("1_5u1pv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
+current = true
+fov = 70.0
