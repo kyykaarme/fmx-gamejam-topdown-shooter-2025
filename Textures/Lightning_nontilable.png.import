@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjei5c84flj7o"
-path="res://.godot/imported/Lightning.png-2342355f92b98737d881159503d0d459.ctex"
+uid="uid://b24r8secr7rhf"
+path="res://.godot/imported/Lightning_nontilable.png-7f9c6a7f60111069ae5538a36d267d37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpecialFX/shaders/Lightning.png"
-dest_files=["res://.godot/imported/Lightning.png-2342355f92b98737d881159503d0d459.ctex"]
+source_file="res://Textures/Lightning_nontilable.png"
+dest_files=["res://.godot/imported/Lightning_nontilable.png-7f9c6a7f60111069ae5538a36d267d37.ctex"]
 
 [params]
 
