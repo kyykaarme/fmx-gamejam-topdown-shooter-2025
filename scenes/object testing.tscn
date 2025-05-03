@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct2ejgskvgnrl"]
+
+[ext_resource type="Material" uid="uid://jv8m5pcakq4p" path="res://Materials/bird.tres" id="1_n17gi"]
+[ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_kxsyy"]
+[ext_resource type="Material" uid="uid://dyu2rylpkw5ep" path="res://Materials/xlogo.tres" id="3_qhx0l"]
+[ext_resource type="ArrayMesh" uid="uid://eq244wgndl6d" path="res://Models/xlogo.obj" id="4_ng7yl"]
+[ext_resource type="Material" uid="uid://dxb4afcaclrvg" path="res://Materials/groundbase_fbsand.tres" id="5_4kk48"]
+[ext_resource type="ArrayMesh" uid="uid://1l8884ovqbpv" path="res://Models/groundbase.obj" id="6_r3tv3"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Bird" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374831, 1.19209e-07, 10.3295)
+material_override = ExtResource("1_n17gi")
+mesh = ExtResource("2_kxsyy")
+
+[node name="Xlogo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74743, 1.03795, 6.86698)
+material_override = ExtResource("3_qhx0l")
+mesh = ExtResource("4_ng7yl")
+
+[node name="Groundbase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.439989, 2.38419e-07, -0.762058)
+material_override = ExtResource("5_4kk48")
+mesh = ExtResource("6_r3tv3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.22362, -0.881243, 0.416418, -0.896971, -0.0188992, 0.441685, -0.381362, -0.472285, -0.794676, 0, 4.66539, 0)
+shadow_enabled = true
+shadow_blur = 2.274
