@@ -4,12 +4,15 @@
 
 [sub_resource type="Theme" id="Theme_7vrkn"]
 default_font = ExtResource("1_06t4h")
+default_font_size = 35
 
 [sub_resource type="Theme" id="Theme_fu7sn"]
 default_font = ExtResource("1_06t4h")
+default_font_size = 35
 
 [sub_resource type="Theme" id="Theme_jix8l"]
 default_font = ExtResource("1_06t4h")
+default_font_size = 35
 
 [node name="Main_Menu" type="Node2D"]
 
