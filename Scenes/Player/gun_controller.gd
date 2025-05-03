@@ -21,3 +21,7 @@ func equip_weapon(weapon_to_equip):
 		equipped_weapon = weapon_to_equip.instantiate()
 		Hand.add_child(equipped_weapon)
 		
+		
+func shoot():
+	if equipped_weapon:
+		equipped_weapon.shoot()
