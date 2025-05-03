@@ -18,6 +18,11 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 Settings="*res://Global/Settings.gd"
 
+[global_group]
+
+player=""
+enemies=""
+
 [input]
 
 moveLeft={
