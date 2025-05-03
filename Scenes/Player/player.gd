@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var gunRay = $Head/Camera3d/RayCast3d as RayCast3D
 @onready var Cam = $Head/Camera3d as Camera3D
 @export var _bullet_scene : PackedScene
+var health = 100
 var mouseSensibility = 1200
 var mouse_relative_x = 0
 var mouse_relative_y = 0
@@ -57,3 +58,10 @@ func shoot():
 	bulletInst.look_at((gunRay.get_collision_point()+gunRay.get_collision_normal()),Vector3.BACK)
 	print(gunRay.get_collision_point())
 	print(gunRay.get_collision_point()+gunRay.get_collision_normal())
+	
+	
+func take_damage(amount: int):
+	health -= amount
+	print("Player health:", health)
+	if health <= 0:
+		print("Player died")
