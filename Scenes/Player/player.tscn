@@ -1,16 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://7gv6q50fuutj"]
 
 [ext_resource type="Script" uid="uid://ewiprybcakb5" path="res://Scenes/Player/player.gd" id="1_1w47b"]
+[ext_resource type="Script" uid="uid://briirfrg1a73j" path="res://Scenes/Player/gun_controller.gd" id="2_a3d8c"]
+[ext_resource type="PackedScene" uid="uid://cl1w7h80ye6ls" path="res://Scenes/Weapons/Gun.tscn" id="3_xpcdj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6b3ky"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_uvnfx"]
-size = Vector3(0.1, 0.1, 0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_a3d8c"]
-size = Vector3(0.1, 0.1, 0.2)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_1w47b")
@@ -18,21 +14,12 @@ script = ExtResource("1_1w47b")
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_emkox")
 
-[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+[node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_6b3ky")
 
-[node name="Head" type="Node3D" parent="."]
+[node name="Hand" type="Node3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.531361, 0.704901, -0.751066)
 
-[node name="Camera3d" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.468479, -0.463024)
-
-[node name="Gun" type="MeshInstance3D" parent="Head/Camera3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.473704, 0.0980176, -0.58246)
-mesh = SubResource("BoxMesh_uvnfx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3d/Gun"]
-transform = Transform3D(1, 0, 0, 0, -0.356477, 0.934304, 0, -0.934304, -0.356477, 0, -0.100924, 0.196161)
-mesh = SubResource("BoxMesh_a3d8c")
-
-[node name="Pos" type="Node3D" parent="Head/Camera3d/Gun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0400209, -0.227142)
+[node name="GunController" type="Node" parent="."]
+script = ExtResource("2_a3d8c")
+StartingWeapon = ExtResource("3_xpcdj")
