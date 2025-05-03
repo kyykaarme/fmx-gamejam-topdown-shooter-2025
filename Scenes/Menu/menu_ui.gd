@@ -1,12 +1,15 @@
-extends CanvasLayer
-func _on_PlayButton_pressed():
-<<<<<<< HEAD:menu_ui.gd
+extends Control
 
-	get_tree().change_scene("res://levels/Main.tscn")
->>>>>>> main:Scenes/Menu/menu_ui.gd
+func _ready():
+	$CanvasLayer/MenuUI/VBoxContainer/Play.grab_focus()
 
-func _on_SettingsButton_pressed():
-	get_tree().change_scene("res://settings.tscn")
+func _on_play_pressed():
+	get_tree().change_scene_to_file("res://levels/Main.tscn")
 
-func _on_CreditsButton_pressed():
-	get_tree().change_scene("res://credits.tscn")
+
+func _on_settings_pressed():
+	get_tree().change_scene_to_file("res://settings.tscn")
+
+
+func _on_credits_pressed():
+	get_tree().change_scene_to_file("res://credits.tscn")
