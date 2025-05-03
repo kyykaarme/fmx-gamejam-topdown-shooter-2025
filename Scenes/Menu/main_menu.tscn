@@ -1,4 +1,18 @@
-[gd_scene format=3 uid="uid://ce5xymbojx4w7"]
+[gd_scene load_steps=5 format=3 uid="uid://ce5xymbojx4w7"]
+
+[ext_resource type="FontFile" uid="uid://t6mmi7ubb1q1" path="res://fonts/GamejamFont-Regular.otf" id="1_06t4h"]
+
+[sub_resource type="Theme" id="Theme_7vrkn"]
+default_font = ExtResource("1_06t4h")
+default_font_size = 35
+
+[sub_resource type="Theme" id="Theme_fu7sn"]
+default_font = ExtResource("1_06t4h")
+default_font_size = 35
+
+[sub_resource type="Theme" id="Theme_jix8l"]
+default_font = ExtResource("1_06t4h")
+default_font_size = 35
 
 [node name="Main_Menu" type="Node2D"]
 
@@ -12,23 +26,22 @@ offset_bottom = 40.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuUI"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 550.0
+offset_top = 350.0
+offset_right = 590.0
+offset_bottom = 390.0
 
-[node name="DropDown" type="OptionButton" parent="CanvasLayer/MenuUI/VBoxContainer"]
+[node name="Play" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_7vrkn")
+text = "Play"
 
-[node name="Play" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer/DropDown"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Settings" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_fu7sn")
+text = "Settings"
 
-[node name="Settings" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer/DropDown"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="Credits" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer/DropDown"]
-layout_mode = 0
-offset_right = 1163.0
-offset_bottom = 658.0
+[node name="Credits" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jix8l")
+text = "Credits"
