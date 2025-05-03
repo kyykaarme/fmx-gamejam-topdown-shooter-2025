@@ -3,7 +3,9 @@
 importer="wavefront_obj"
 importer_version=1
 type="Mesh"
+
 uid="uid://blhttu5adg4yu"
+
 path="res://.godot/imported/cage.obj-0675921d20e6e2d82af1450d2e8cb6b2.mesh"
 
 [deps]
