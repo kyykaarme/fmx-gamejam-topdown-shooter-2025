@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bvtisjllwrq5w"
-path="res://.godot/imported/heart.fbx-9bc2ae7809b64f6a7ad4312a2190ebf4.scn"
+path="res://.godot/imported/heart.fbx-f1d5e154fbcb6bdd2fc48d139fd3cf9a.scn"
 
 [deps]
 
-source_file="res://models/heart.fbx"
-dest_files=["res://.godot/imported/heart.fbx-9bc2ae7809b64f6a7ad4312a2190ebf4.scn"]
+source_file="res://SpecialFX/models/heart.fbx"
+dest_files=["res://.godot/imported/heart.fbx-f1d5e154fbcb6bdd2fc48d139fd3cf9a.scn"]
 
 [params]
 

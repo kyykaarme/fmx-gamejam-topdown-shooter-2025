@@ -1,12 +1,12 @@
 [gd_scene load_steps=26 format=3 uid="uid://deb138n66xa3j"]
 
-[ext_resource type="ArrayMesh" uid="uid://c1b5vrujtejax" path="res://models/heart.obj" id="1_dcr5g"]
-[ext_resource type="Shader" path="res://shaders/new_shader_material.gdshader" id="1_n0njf"]
-[ext_resource type="ArrayMesh" uid="uid://dq46u35wtfgmg" path="res://models/quadmesh.obj" id="2_wb6xs"]
-[ext_resource type="ArrayMesh" uid="uid://cna7hup0o2cbr" path="res://models/lightning.obj" id="4_yexkb"]
+[ext_resource type="Shader" path="res://SpecialFX/shaders/new_shader_material.gdshader" id="1_6wmry"]
+[ext_resource type="ArrayMesh" uid="uid://c1b5vrujtejax" path="res://SpecialFX/models/heart.obj" id="2_2yqfy"]
+[ext_resource type="ArrayMesh" uid="uid://cna7hup0o2cbr" path="res://SpecialFX/models/lightning.obj" id="3_4igjo"]
+[ext_resource type="ArrayMesh" uid="uid://dq46u35wtfgmg" path="res://SpecialFX/models/quadmesh.obj" id="4_k11tj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxov6"]
-shader = ExtResource("1_n0njf")
+shader = ExtResource("1_6wmry")
 shader_parameter/size = Vector2(3, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7a1a"]
@@ -183,7 +183,7 @@ amount = 5
 lifetime = 3.0
 explosiveness = 0.3
 process_material = SubResource("ParticleProcessMaterial_7onp1")
-draw_pass_1 = ExtResource("1_dcr5g")
+draw_pass_1 = ExtResource("2_2yqfy")
 
 [node name="Explosion" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.999993, -0.00300028, 0.00208706, 0.00299841, 0.999995, 0.00090048, -0.00208975, -0.000894215, 0.999997, -0.00606975, 2.38419e-07, -1.9992)
@@ -206,16 +206,17 @@ light_energy = 0.2
 shadow_enabled = true
 
 [node name="Lightning" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00213599, 0.00442886, -3.73125e-05)
 material_override = SubResource("StandardMaterial3D_eihxt")
 amount = 15
 lifetime = 0.3
 explosiveness = 0.1
 process_material = SubResource("ParticleProcessMaterial_dh5b5")
-draw_pass_1 = ExtResource("4_yexkb")
+draw_pass_1 = ExtResource("3_4igjo")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.17782e-07, -7.27, 0, 7.27, -3.17782e-07, 0, 0, 0, 7.27, -0.0118654, -1.35507, 1.16978)
-mesh = ExtResource("2_wb6xs")
+mesh = ExtResource("4_k11tj")
 
 [node name="SmokingHeads" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85851, 0.0675426, 1.42809)

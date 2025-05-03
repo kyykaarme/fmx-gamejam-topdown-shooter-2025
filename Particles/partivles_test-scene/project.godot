@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="Partivles_Test-Scene"
-run/main_scene="res://gpu_particles_3d.tscn"
+run/main_scene="res://SpecialFX/gpu_particles_3d.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
