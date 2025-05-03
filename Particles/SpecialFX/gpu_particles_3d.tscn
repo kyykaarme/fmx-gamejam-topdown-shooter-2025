@@ -1,9 +1,9 @@
 [gd_scene load_steps=26 format=3 uid="uid://deb138n66xa3j"]
 
-[ext_resource type="Shader" path="res://SpecialFX/shaders/new_shader_material.gdshader" id="1_6wmry"]
-[ext_resource type="ArrayMesh" uid="uid://c1b5vrujtejax" path="res://SpecialFX/models/heart.obj" id="2_2yqfy"]
-[ext_resource type="ArrayMesh" uid="uid://cna7hup0o2cbr" path="res://SpecialFX/models/lightning.obj" id="3_4igjo"]
-[ext_resource type="ArrayMesh" uid="uid://dq46u35wtfgmg" path="res://SpecialFX/models/quadmesh.obj" id="4_k11tj"]
+[ext_resource type="Shader" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="1_6wmry"]
+[ext_resource type="ArrayMesh" uid="uid://c1b5vrujtejax" path="res://Particles/SpecialFX/models/heart.obj" id="2_2yqfy"]
+[ext_resource type="ArrayMesh" uid="uid://cna7hup0o2cbr" path="res://Particles/SpecialFX/models/lightning.obj" id="3_4igjo"]
+[ext_resource type="ArrayMesh" uid="uid://dq46u35wtfgmg" path="res://Particles/SpecialFX/models/quadmesh.obj" id="4_k11tj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxov6"]
 shader = ExtResource("1_6wmry")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctahsvj88g1om"]
+[gd_scene load_steps=13 format=3 uid="uid://ctahsvj88g1om"]
 
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_2jfjj"]
-[ext_resource type="Script" uid="uid://bkrwjerp5qapg" path="res://levels/main.gd" id="1_lbxsr"]
+[ext_resource type="Script" path="res://levels/main.gd" id="1_lbxsr"]
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="2_ntnxr"]
 [ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="3_lbxsr"]
-[ext_resource type="Script" uid="uid://bym7uxuykagfe" path="res://levels/camera_grip.gd" id="5_lbxsr"]
+[ext_resource type="Script" path="res://levels/camera_grip.gd" id="5_lbxsr"]
+[ext_resource type="Shader" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="6_rjp84"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -28,6 +29,10 @@ cell_size = 0.03
 agent_height = 2.0
 agent_radius = 1.0
 agent_max_climb = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hpmh"]
+shader = ExtResource("6_rjp84")
+shader_parameter/size = Vector2(4, 3)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_lbxsr")
@@ -159,5 +164,15 @@ fov = 70.0
 far = 100.0
 script = ExtResource("5_lbxsr")
 target = NodePath("../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3d"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3d/CanvasLayer"]
+material = SubResource("ShaderMaterial_2hpmh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
