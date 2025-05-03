@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://2mn0py0r535s"]
+
+[ext_resource type="Material" uid="uid://c2d21nroold8v" path="res://Materials/hexplaceholder.tres" id="1_254l2"]
+[ext_resource type="ArrayMesh" uid="uid://c5hw8hpltjhvm" path="res://Models/hexgroundbase.obj" id="2_borjc"]
+
+[node name="Hexgroundbase" type="MeshInstance3D"]
+material_override = ExtResource("1_254l2")
+mesh = ExtResource("2_borjc")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.1965, 5.28144, -29.3092)
+visible = false
+use_collision = true
+size = Vector3(32.1361, 8.47949, 24.3)
