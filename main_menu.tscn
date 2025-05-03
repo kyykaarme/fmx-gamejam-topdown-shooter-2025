@@ -1,4 +1,15 @@
-[gd_scene format=3 uid="uid://ce5xymbojx4w7"]
+[gd_scene load_steps=5 format=3 uid="uid://ce5xymbojx4w7"]
+
+[ext_resource type="FontFile" uid="uid://t6mmi7ubb1q1" path="res://fonts/GamejamFont-Regular.otf" id="1_06t4h"]
+
+[sub_resource type="Theme" id="Theme_7vrkn"]
+default_font = ExtResource("1_06t4h")
+
+[sub_resource type="Theme" id="Theme_fu7sn"]
+default_font = ExtResource("1_06t4h")
+
+[sub_resource type="Theme" id="Theme_jix8l"]
+default_font = ExtResource("1_06t4h")
 
 [node name="Main_Menu" type="Node2D"]
 
@@ -19,12 +30,15 @@ offset_bottom = 390.0
 
 [node name="Play" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_7vrkn")
 text = "Play"
 
 [node name="Settings" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_fu7sn")
 text = "Settings"
 
 [node name="Credits" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_jix8l")
 text = "Credits"
