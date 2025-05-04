@@ -6,3 +6,4 @@
 [resource]
 albedo_texture = ExtResource("1_8m0lx")
 roughness_texture = ExtResource("2_w1ky1")
+billboard_mode = 1

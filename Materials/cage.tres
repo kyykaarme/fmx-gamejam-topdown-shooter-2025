@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dybu8u8hsgmlk"]
+
+[ext_resource type="Texture2D" uid="uid://cku0qwxtt01ki" path="res://Materials/Textures/cage_DefaultMaterial_BaseColor.png" id="1_82q1c"]
+[ext_resource type="Texture2D" uid="uid://djfsapkshhilg" path="res://Materials/Textures/cage_DefaultMaterial_Emissive.png" id="2_0cr03"]
+[ext_resource type="Texture2D" uid="uid://cgssh7f02lyi" path="res://Materials/Textures/cage_DefaultMaterial_Metallic.png" id="3_utsdu"]
+[ext_resource type="Texture2D" uid="uid://cnd4f1kieqefk" path="res://Materials/Textures/cage_DefaultMaterial_Normal.png" id="4_76ai1"]
+[ext_resource type="Texture2D" uid="uid://4escro65k5mb" path="res://Materials/Textures/cage_DefaultMaterial_Roughness.png" id="5_ouu5p"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_82q1c")
+metallic = 1.0
+metallic_texture = ExtResource("3_utsdu")
+roughness_texture = ExtResource("5_ouu5p")
+emission_enabled = true
+emission_texture = ExtResource("2_0cr03")
+normal_enabled = true
+normal_texture = ExtResource("4_76ai1")

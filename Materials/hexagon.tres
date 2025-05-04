@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://femfugojvlmw"]
+
+[ext_resource type="Texture2D" uid="uid://pbyxlbwk0ss3" path="res://Materials/Textures/hextex_DefaultMaterial_BaseColor.jpg" id="1_y2ibu"]
+[ext_resource type="Texture2D" uid="uid://camw4abtwh3dv" path="res://Materials/Textures/hextex_DefaultMaterial_Normal.jpg" id="2_8fpdr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y4stk"]
+load_path = "res://.godot/imported/hextex_DefaultMaterial_Metallic.jpg-7cc2537a9ff1a049b9e3fd05c0ccf118.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xd255"]
+load_path = "res://.godot/imported/hextex_DefaultMaterial_Roughness.jpg-4178c6653397e9bd2adb4cce9a0dc6d8.s3tc.ctex"
+
+[resource]
+albedo_texture = ExtResource("1_y2ibu")
+metallic = 0.1
+metallic_texture = SubResource("CompressedTexture2D_y4stk")
+roughness = 0.9
+roughness_texture = SubResource("CompressedTexture2D_xd255")
+normal_enabled = true
+normal_scale = -1.2
+normal_texture = ExtResource("2_8fpdr")
