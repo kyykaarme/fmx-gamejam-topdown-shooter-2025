@@ -40,6 +40,10 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 			can_double_jump = false
 
+	# Shooting mechanism
+	if Input.is_action_just_pressed("Shoot"):
+		gunControllor.shoot()
+
 	# Dash input
 	if Input.is_action_just_pressed("Dash") and not is_dashing:
 		var input_dir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")

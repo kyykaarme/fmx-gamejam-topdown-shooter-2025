@@ -12,7 +12,7 @@ config_version=5
 
 config/name="G4fps"
 run/main_scene="res://levels/Main.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
