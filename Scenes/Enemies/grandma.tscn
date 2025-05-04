@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfjwe42bpotq8"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_pqdxf"]
+[ext_resource type="Texture2D" uid="uid://dwawkw3a5426i" path="res://Textures/grandma/Granma_1.png" id="2_bppql"]
+[ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="3_hcllo"]
+[ext_resource type="Texture2D" uid="uid://dvqlki12npvg5" path="res://Textures/grandma/Granma_2.png" id="3_m1qtm"]
+[ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="4_c2dip"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ygs04"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bppql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m1qtm")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ytnk"]
+size = Vector3(1, 2, 1)
+
+[node name="Enemies" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_pqdxf")
+enemy_speed = 1.5
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 2.0
+target_desired_distance = 2.0
+path_height_offset = 0.1
+use_3d_avoidance = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_ygs04")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.234718
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("3_hcllo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1ytnk")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="Stats" parent="." instance=ExtResource("4_c2dip")]
+max_HP = 8
+
+[connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]

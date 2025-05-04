@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bxyhhr1aoonle"]
 
-[ext_resource type="Script" uid="uid://caaffumr20a2l" path="res://Scenes/Enemies/enemies.gd" id="1_2imak"]
+[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_2imak"]
 [ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_hndbo"]
 [ext_resource type="Texture2D" uid="uid://cwr3fbr740e0t" path="res://Textures/robot.png" id="2_mgev7"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="3_os6m6"]
@@ -10,6 +10,7 @@ size = Vector3(1, 2, 1)
 
 [node name="Enemies" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_2imak")
+enemy_speed = 3.5
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 2.0
@@ -33,5 +34,6 @@ shape = SubResource("BoxShape3D_1ytnk")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 
 [node name="Stats" parent="." instance=ExtResource("3_os6m6")]
+max_HP = 3
 
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]
