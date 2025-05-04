@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://k08jd6gj0bak"]
+[gd_scene load_steps=17 format=3 uid="uid://k08jd6gj0bak"]
 
 [ext_resource type="Material" uid="uid://jv8m5pcakq4p" path="res://Materials/bird.tres" id="1_n17gi"]
 [ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_kxsyy"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://beoeutwfc8vjy" path="res://Prefabs/platform19.tscn" id="10_4turl"]
 [ext_resource type="PackedScene" uid="uid://dfo5v2n8y6ebp" path="res://Prefabs/platform3.tscn" id="11_pkfp3"]
 [ext_resource type="PackedScene" uid="uid://dq2l2uvrk5jlj" path="res://Prefabs/platform7.tscn" id="12_ltj7o"]
+[ext_resource type="PackedScene" uid="uid://b0peceods0337" path="res://Models/cage.glb" id="13_qrh3c"]
+[ext_resource type="Material" uid="uid://dybu8u8hsgmlk" path="res://Materials/cage.tres" id="14_hprk6"]
+[ext_resource type="ArrayMesh" uid="uid://c2fumvcsw4jtl" path="res://Models/cage_Cylinder_007.res" id="15_g7gs5"]
 
 [sub_resource type="Environment" id="Environment_1ynxw"]
 
@@ -62,3 +65,14 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 37.7812, 9.52119, -28.6686)
 
 [node name="PlatMed" parent="." instance=ExtResource("12_ltj7o")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 32.7881, 9.52119, -28.2008)
+
+[node name="cage" parent="." instance=ExtResource("13_qrh3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.254, 9.52119, -32.1059)
+
+[node name="CageCylinder007" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5222, 9.52118, -30.3375)
+material_override = ExtResource("14_hprk6")
+mesh = ExtResource("15_g7gs5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CageCylinder007"]
+root_node = NodePath("../..")
