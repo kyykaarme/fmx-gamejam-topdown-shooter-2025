@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://k08jd6gj0bak"]
+[gd_scene load_steps=18 format=3 uid="uid://k08jd6gj0bak"]
 
 [ext_resource type="Material" uid="uid://jv8m5pcakq4p" path="res://Materials/bird.tres" id="1_n17gi"]
 [ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_kxsyy"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b0peceods0337" path="res://Models/cage.glb" id="13_qrh3c"]
 [ext_resource type="Material" uid="uid://dybu8u8hsgmlk" path="res://Materials/cage.tres" id="14_hprk6"]
 [ext_resource type="ArrayMesh" uid="uid://c2fumvcsw4jtl" path="res://Models/cage_Cylinder_007.res" id="15_g7gs5"]
+[ext_resource type="PackedScene" uid="uid://bfrh3cs6un6wv" path="res://Prefabs/fb_like_sphere.tscn" id="16_hprk6"]
 
 [sub_resource type="Environment" id="Environment_1ynxw"]
 
@@ -76,3 +77,5 @@ mesh = ExtResource("15_g7gs5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CageCylinder007"]
 root_node = NodePath("../..")
+
+[node name="FbLikeSphere" parent="." instance=ExtResource("16_hprk6")]
