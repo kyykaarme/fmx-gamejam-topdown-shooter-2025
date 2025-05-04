@@ -1,12 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://7gv6q50fuutj"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_1w47b"]
+[ext_resource type="Texture2D" uid="uid://4kr31wcjvupj" path="res://Textures/Character.png" id="2_5khuw"]
 [ext_resource type="Script" path="res://Scenes/Player/gun_controller.gd" id="2_a3d8c"]
 [ext_resource type="PackedScene" uid="uid://cl1w7h80ye6ls" path="res://Scenes/Weapons/Gun.tscn" id="3_xpcdj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_6b3ky"]
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_1w47b")
@@ -15,10 +14,14 @@ script = ExtResource("1_1w47b")
 shape = SubResource("CapsuleShape3D_emkox")
 
 [node name="Body" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_6b3ky")
 
 [node name="Hand" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.531361, 0.704901, -0.751066)
+
+[node name="Sprite3D" type="Sprite3D" parent="Body"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.0339026, 0)
+billboard = 1
+texture = ExtResource("2_5khuw")
 
 [node name="GunController" type="Node" parent="."]
 script = ExtResource("2_a3d8c")

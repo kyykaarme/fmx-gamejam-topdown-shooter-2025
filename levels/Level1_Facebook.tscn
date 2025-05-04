@@ -1,0 +1,243 @@
+[gd_scene load_steps=13 format=3 uid="uid://c25x84c63yj7b"]
+
+[ext_resource type="Script" path="res://levels/main.gd" id="1_hwk5y"]
+[ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="2_e126r"]
+[ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="3_lxc4o"]
+[ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="4_rakmv"]
+[ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="5_gasdr"]
+[ext_resource type="Shader" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="6_3bj1t"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
+
+[sub_resource type="Environment" id="Environment_l5pxq"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+sky = SubResource("Sky_ivwug")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gtf0"]
+albedo_texture = ExtResource("4_rakmv")
+uv1_scale = Vector3(3, 3, 3)
+uv1_triplanar = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_huyiv"]
+shader = ExtResource("6_3bj1t")
+shader_parameter/size = Vector2(3, 2)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_3vw7n"]
+vertices = PackedVector3Array(-48.98, 1, -48.98, -48.98, 1, 48.97, 48.97, 1, 48.97, 48.97, 1, -48.98)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_size = 0.03
+agent_height = 2.0
+agent_radius = 1.0
+agent_max_climb = 0.05
+
+[node name="Level2" type="Node3D"]
+script = ExtResource("1_hwk5y")
+
+[node name="InBetweenWaves" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l5pxq")
+
+[node name="Player" parent="." instance=ExtResource("2_e126r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="ObstaclesHolder" type="Node3D" parent="."]
+transform = Transform3D(2, 1.78814e-07, 0, 3.72529e-08, 5, -9.53674e-07, -1.11759e-08, -2.38419e-07, 30, 12.0086, 2.95161, -0.0307541)
+
+[node name="BasicBlock3" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(1, -8.94071e-08, -1.9455e-14, -7.45058e-09, 1, 2.17601e-07, 3.72529e-10, 7.94729e-09, 1.14085, -8.82293, -0.0103979, 0.952727)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock12" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(1, -8.9407e-08, -5.42011e-14, -7.45058e-09, 1, 6.0623e-07, 3.72529e-10, 7.94729e-09, 3.17839, -29.6533, -5.96046e-07, 2.11876e-07)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock14" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(1, -8.9407e-08, -5.42011e-14, -7.45058e-09, 1, 6.0623e-07, 3.72529e-10, 7.94729e-09, 3.17839, 17.9034, -8.9407e-07, 2.29571e-07)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock8" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(47.075, -7.10543e-15, 2.11758e-22, -3.34489e-15, 1, 0, 0, 0, 0.12, -5.72972, -3.57628e-07, 1.52386)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock16" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(19.8301, -4.9738e-14, 1.27055e-21, -1.40901e-15, 1, 5.32907e-15, 0, 0, 0.12, -19.2367, -1.19209e-07, 0.852248)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock15" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(47.075, -1.42109e-14, 2.11758e-22, -3.34489e-15, 1, 0, 0, 0, 0.12, -5.72972, -8.9407e-07, -1.5235)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock9" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(-0.451329, -8.9407e-08, 13.3854, -7.98425e-09, 1, -1.85813e-07, -0.0594905, 7.94729e-09, -0.451329, 11.2956, -5.96046e-07, 1.28368)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock17" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(-0.451329, -8.9407e-08, 13.3854, -7.98425e-09, 1, -1.85813e-07, -0.0594905, 7.94729e-09, -0.451329, -15.3426, -5.36442e-07, 0.622002)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock10" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(-0.451329, -8.9407e-08, 13.3854, -7.98425e-09, 1, -1.85813e-07, -0.0594905, 7.94729e-09, -0.451329, -23.2426, -7.15256e-07, -1.30451)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock2" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(5.43861, -1.73298e-07, -2.3266e-15, -4.05209e-08, 1.93831, 2.60226e-08, 2.02603e-09, 1.54043e-08, 0.136433, 14.8198, 0.247286, 0.242531)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock11" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(5.43861, -1.73298e-07, -2.3266e-15, -4.05209e-08, 1.93831, 2.60226e-08, 2.02603e-09, 1.54043e-08, 0.136433, 10.1196, 0.247286, 0.346036)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock21" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(5.43861, -1.73298e-07, -2.3266e-15, -4.05209e-08, 1.93831, 2.60226e-08, 2.02603e-09, 1.54043e-08, 0.136433, -5.67249, 0.247286, 0.874539)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock22" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(5.43861, -1.73298e-07, -2.32659e-15, -4.05209e-08, 1.93831, 2.60226e-08, 2.02603e-09, 1.54043e-08, 0.136433, -0.911245, 0.247286, 0.964565)
+block_color_group = 1
+block_style = 2
+
+[node name="CsgPolygon3d3" type="CSGPolygon3D" parent="ObstaclesHolder"]
+transform = Transform3D(1.5, -5.36442e-08, -1.7053e-15, -1.11759e-08, 0.6, 1.90735e-08, 5.58793e-10, 4.76837e-09, 0.1, -21.3066, -0.485556, 0.552589)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 0, 1, 1, 0)
+material = SubResource("StandardMaterial3D_2gtf0")
+
+[node name="BasicBlock5" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -22.982, -0.381764, 0.198803)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock6" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -22.982, -0.182794, 0.355041)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock7" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -22.982, 0.0123734, 0.507923)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock23" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -26.7792, 0.344132, 0.49901)
+block_color_group = 5
+block_style = 2
+
+[node name="BasicBlock29" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -25.9422, -0.451803, 1.16302)
+block_color_group = 5
+block_style = 2
+
+[node name="BasicBlock24" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, 0.990078, 0.344132, -0.954024)
+block_color_group = 5
+block_style = 2
+
+[node name="BasicBlock18" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -8.59642, -0.381764, -1.39433)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock19" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -5.77981, -0.182794, -1.2671)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock20" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -2.95645, 0.0123731, -1.12855)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock25" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -8.59642, -0.381764, -1.39433)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock26" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -5.77981, -0.182794, -1.2671)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock27" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(2, -1.78814e-08, -2.27374e-15, -1.49012e-08, 0.2, 2.54313e-08, 7.45058e-10, 1.58946e-09, 0.133333, -2.95645, 0.0123731, -1.12855)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock4" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(4.71464, -1.78814e-08, -4.54915e-15, -3.51268e-08, 0.2, 5.08815e-08, 1.75633e-09, 1.58946e-09, 0.266765, 1.0423, 0.224146, -0.950737)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock13" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(4.55402, -1.78814e-08, -5.11591e-15, -3.39301e-08, 0.2, 5.72205e-08, 1.6965e-09, 1.58946e-09, 0.3, -26.6866, 0.227613, 0.502768)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock28" parent="ObstaclesHolder" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(4.55402, -1.78814e-08, -5.1159e-15, -3.39301e-08, 0.2, 5.72205e-08, 1.6965e-09, 1.58946e-09, 0.3, -25.9236, -0.542739, 1.17088)
+block_color_group = 1
+block_style = 2
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)
+light_energy = 1.232
+light_indirect_energy = 0.884
+light_volumetric_fog_energy = 0.768
+shadow_enabled = true
+
+[node name="Camera3d" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_gasdr")]
+transform = Transform3D(1, 0, 0, 0, 0.493942, 0.869495, 0, -0.869495, 0.493942, 0, 0, 0)
+fov = 50.0
+target = NodePath("../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3d"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3d/CanvasLayer"]
+material = SubResource("ShaderMaterial_huyiv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_3vw7n")
+
+[node name="BasicBlock" parent="NavigationRegion3D" instance=ExtResource("3_lxc4o")]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="SpawnHolder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.14141, 0)
+
+[node name="Spawner1" type="Node3D" parent="SpawnHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.63, 5.27724, -40.63)
+
+[node name="Spawner2" type="Node3D" parent="SpawnHolder"]
+transform = Transform3D(1, 0, 0, 0, -0.229982, 0.973195, 0, -0.973195, -0.229982, 42.0193, 0, 38.189)
+
+[node name="Spawner3" type="Node3D" parent="SpawnHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1156, 0, 33.8646)
+
+[node name="Spawner4" type="Node3D" parent="SpawnHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.6446, 0, -33.629)
+
+[connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]

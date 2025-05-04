@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://df3n1d7k65hut"]
 
-[ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_qxjbg"]
-[ext_resource type="PackedScene" uid="uid://mvbxi5nnguga" path="res://Scenes/Spawner/spawner.tscn" id="2_1y5p2"]
-[ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="2_wcyx1"]
-[ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="3_ek3o3"]
-[ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="4_wcyx1"]
+[ext_resource type="Script" path="res://levels/playground.gd" id="1_y836f"]
+[ext_resource type="PackedScene" uid="uid://mvbxi5nnguga" path="res://Scenes/Spawner/spawner.tscn" id="2_sj6o1"]
+[ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="3_se5l6"]
+[ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="4_naw0k"]
+[ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="5_xbv3b"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ek3o3"]
 vertices = PackedVector3Array(-8.98, 0.4, -8.98, -8.98, 0.4, 8.99, 8.99, 0.4, 8.99, 8.99, 0.4, -8.98)
@@ -15,12 +15,12 @@ agent_radius = 1.0
 agent_max_climb = 0.05
 
 [node name="Playground" type="Node3D"]
-script = ExtResource("1_qxjbg")
+script = ExtResource("1_y836f")
 
-[node name="Spawner" parent="." instance=ExtResource("2_1y5p2")]
+[node name="Spawner" parent="." instance=ExtResource("2_sj6o1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08618, 2.91281, 6.25675)
 
-[node name="Player" parent="." instance=ExtResource("2_wcyx1")]
+[node name="Player" parent="." instance=ExtResource("3_se5l6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
@@ -30,13 +30,13 @@ light_indirect_energy = 0.884
 light_volumetric_fog_energy = 0.768
 shadow_enabled = true
 
-[node name="Camera3d" parent="." instance=ExtResource("3_ek3o3")]
+[node name="Camera3d" parent="." instance=ExtResource("4_naw0k")]
 transform = Transform3D(1, 0, 0, 0, 0.49338, 0.869814, 0, -0.869814, 0.49338, 0, 11.2201, 5.43089)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ek3o3")
 
-[node name="BasicBlock" parent="NavigationRegion3D" instance=ExtResource("4_wcyx1")]
+[node name="BasicBlock" parent="NavigationRegion3D" instance=ExtResource("5_xbv3b")]
 transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
