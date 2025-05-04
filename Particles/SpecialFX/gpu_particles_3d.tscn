@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://deb138n66xa3j"]
+[gd_scene load_steps=30 format=3 uid="uid://deb138n66xa3j"]
 
 [ext_resource type="Shader" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="1_6wmry"]
 [ext_resource type="ArrayMesh" uid="uid://c1b5vrujtejax" path="res://Particles/SpecialFX/models/heart.obj" id="2_2yqfy"]
@@ -133,7 +133,14 @@ turbulence_noise_strength = 6.05
 transparency = 4
 albedo_color = Color(1, 1, 1, 0.121569)
 
+[sub_resource type="Curve" id="Curve_3wscc"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_esix7"]
+curve = SubResource("Curve_3wscc")
 
 [sub_resource type="Curve" id="Curve_eicta"]
 max_value = 100.0
