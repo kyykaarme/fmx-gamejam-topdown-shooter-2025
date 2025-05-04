@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://mvbxi5nnguga"]
+
+[ext_resource type="Script" uid="uid://nldy7flffns3" path="res://Scenes/Spawner/spawner.gd" id="1_rd5sa"]
+[ext_resource type="PackedScene" uid="uid://kvu124vpgs4h" path="res://Scenes/Enemies/enemies.tscn" id="2_wbtia"]
+
+[node name="Spawner" type="Node3D"]
+script = ExtResource("1_rd5sa")
+Enemy = ExtResource("2_wbtia")
+wave_sizes = [3, 5, 7, 10]
+
+[node name="InBetweenWaves" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
