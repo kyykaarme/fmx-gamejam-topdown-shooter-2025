@@ -46,8 +46,7 @@ func move_and_attack():
 	var distance_to_player = current_location.distance_to(next_location)
 	if distance_to_player < 1.0: 
 		current_state = state.RESTING	
-	
-	
+		
 #Take Hit
 func _on_stats_you_died_signal():
 	FX.emitting = true  # start particle effect
