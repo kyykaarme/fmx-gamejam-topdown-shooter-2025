@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce5xymbojx4w7"]
+[gd_scene load_steps=7 format=3 uid="uid://ce5xymbojx4w7"]
 
 [ext_resource type="FontFile" uid="uid://t6mmi7ubb1q1" path="res://fonts/GamejamFont-Regular.otf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://c5i0mrvbl8e8k" path="res://Scenes/Menu/menu_ui.gd" id="1_tself"]
+[ext_resource type="PackedScene" uid="uid://c5duvjrnlpry" path="res://Scenes/Animations/transition_screen.tscn" id="2_7jtkx"]
 
 [sub_resource type="Theme" id="Theme_7vrkn"]
 default_font = ExtResource("1_06t4h")
@@ -19,6 +20,8 @@ default_font_size = 35
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_tself")
+
+[node name="transition_screen" parent="." instance=ExtResource("2_7jtkx")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

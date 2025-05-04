@@ -5,6 +5,8 @@ extends CharacterBody3D
 @export var mouseSensibility = 1200
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
+signal die_from_killed
+signal die_from_falling
 
 # Jump & Dash
 var can_double_jump = true
@@ -23,7 +25,7 @@ func _ready():
 
 func _physics_process(delta):
 	# Fall check
-	if global_transform.origin.y < -10:  # Adjust based on your map
+	if self.global_transform.origin.y < -10:  # Adjust based on your map
 		_fell_off_map()
 	
 	# Gravity
@@ -76,8 +78,10 @@ func _physics_process(delta):
 
 func _on_stats_you_died_signal() -> void:
 	queue_free()
+	emit_signal("die_from_killed")
 	print("GAME OVER")
 	
 func _fell_off_map():
 	queue_free()
+	emit_signal("die_from_falling")
 	print("You fell off the map.")
