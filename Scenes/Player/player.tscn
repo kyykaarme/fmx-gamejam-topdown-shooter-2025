@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://7gv6q50fuutj"]
+[gd_scene load_steps=8 format=3 uid="uid://7gv6q50fuutj"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_1w47b"]
 [ext_resource type="Script" path="res://Scenes/Player/gun_controller.gd" id="2_a3d8c"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="2_mtuoh"]
 [ext_resource type="PackedScene" uid="uid://cl1w7h80ye6ls" path="res://Scenes/Weapons/Gun.tscn" id="3_xpcdj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mtuoh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emkox"]
 
@@ -15,11 +17,14 @@ collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_1w47b")
 
-[node name="Stats" parent="." instance=ExtResource("2_mtuoh")]
-max_HP = 5
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_mtuoh")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_emkox")
+
+[node name="Stats" parent="." instance=ExtResource("2_mtuoh")]
+max_HP = 5
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_6b3ky")

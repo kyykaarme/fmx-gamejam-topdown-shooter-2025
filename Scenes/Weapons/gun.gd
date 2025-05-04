@@ -14,7 +14,6 @@ func _ready():
 	#shoot()
 	
 func shoot():
-	print("gay")
 	if canShoot: 
 		var instance = Bullet.instantiate()
 		instance.speed = muzzle_speed
