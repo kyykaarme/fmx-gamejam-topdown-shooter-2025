@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7go8u3kqm1j8"]
+[gd_scene load_steps=14 format=3 uid="uid://b7go8u3kqm1j8"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_ohc2x"]
 [ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="3_dapv6"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dumye1h0y1kui" path="res://Textures/ai_cat/Cat_animation3.png" id="5_a7ddu"]
 [ext_resource type="Texture2D" uid="uid://blnee4ijx5agw" path="res://Textures/ai_cat/Cat_animation4.png" id="6_bixby"]
 [ext_resource type="Texture2D" uid="uid://baiq8hrocebc4" path="res://Textures/ai_cat/Cat_animation5.png" id="7_i33fr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7e8f6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a4p8d"]
 animations = [{
@@ -35,6 +37,12 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ytnk"]
 size = Vector3(1.11279, 2, 1)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1ej5d"]
+radius = 7.35986
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uo75o"]
+radius = 0.6
+
 [node name="Enemies" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_ohc2x")
 enemy_speed = 5.0
@@ -45,12 +53,17 @@ target_desired_distance = 2.0
 path_height_offset = 0.1
 use_3d_avoidance = true
 
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.4, -0.00231588, -0.287215, 0.45446)
+material_override = SubResource("StandardMaterial3D_7e8f6")
+cast_shadow = 3
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
 mesh = ExtResource("3_dapv6")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.269241, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_a4p8d")
 autoplay = "default"
@@ -64,5 +77,23 @@ shape = SubResource("BoxShape3D_1ytnk")
 
 [node name="Stats" parent="." instance=ExtResource("4_doqbm")]
 max_HP = 2
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_1ej5d")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="HurtArea" type="Area3D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
+shape = SubResource("CapsuleShape3D_uo75o")
+
+[node name="restingTimer" type="Timer" parent="."]
 
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]

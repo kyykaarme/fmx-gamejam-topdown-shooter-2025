@@ -7,7 +7,7 @@ var ray_target = Vector3()
 
 func _process(delta):
 	if(target):
-		get_tree().call_group("enemies", "target_position", target.global_transform.origin)
+		get_tree().call_grwoup("enemies", "target_position", target.global_transform.origin)
 
 func _physics_process(delta):
 	if(target):
