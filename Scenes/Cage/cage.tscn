@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://b6pbs4yoejcyl"]
+
+[ext_resource type="ArrayMesh" uid="uid://dwvqmg5f6e4lp" path="res://Models/cage_Cylinder_007.res" id="1_0s0ky"]
+[ext_resource type="Script" uid="uid://bgltfai3c2ygu" path="res://Scenes/Cage/cage.gd" id="1_gme4y"]
+[ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="2_thds5"]
+[ext_resource type="ArrayMesh" uid="uid://c1b5vrujtejax" path="res://Particles/SpecialFX/models/heart.obj" id="4_ifa4k"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ifa4k"]
+radius = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4syy"]
+vertex_color_use_as_albedo = true
+roughness = 0.33
+emission_enabled = true
+emission = Color(0.816755, 0.0120537, 0.559263, 1)
+emission_energy_multiplier = 5.96
+
+[sub_resource type="Curve" id="Curve_kwoub"]
+_data = [Vector2(0, 0), 0.0, 2.61927, 0, 1, Vector2(0.381786, 1), -0.101615, -0.101615, 0, 0, Vector2(0.621716, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.64352, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2nt4q"]
+curve = SubResource("Curve_kwoub")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0tuh6"]
+particle_flag_rotate_y = true
+particle_flag_damping_as_friction = true
+emission_shape_scale = Vector3(0, 0, 0)
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 0.5
+initial_velocity_max = 0.8
+angular_velocity_min = -545.63
+angular_velocity_max = 78.28
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -0.0100022
+tangential_accel_max = 0.00999776
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_2nt4q")
+color = Color(1, 0.629753, 0.99003, 1)
+turbulence_noise_strength = 5.3
+turbulence_noise_scale = 0.545
+
+[node name="Cage" type="CharacterBody3D"]
+script = ExtResource("1_gme4y")
+
+[node name="CageCylinder007" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_0s0ky")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_ifa4k")
+
+[node name="Stats" parent="." instance=ExtResource("2_thds5")]
+max_HP = 5
+
+[node name="Hearts" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7515, 0)
+material_override = SubResource("StandardMaterial3D_y4syy")
+emitting = false
+amount = 5
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.3
+process_material = SubResource("ParticleProcessMaterial_0tuh6")
+draw_pass_1 = ExtResource("4_ifa4k")
+
+[connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]

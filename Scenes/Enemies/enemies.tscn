@@ -24,14 +24,14 @@ roughness = 0.5
 offsets = PackedFloat32Array(0, 0.609137, 1)
 colors = PackedColorArray(0.698039, 0.694118, 0.752941, 1, 0.670588, 0.788235, 0.945098, 1, 0.443137, 0.580392, 0.941176, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_24q3t"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0cbi2"]
 gradient = SubResource("Gradient_ai0t8")
 
 [sub_resource type="Curve" id="Curve_j45hi"]
 _data = [Vector2(0.77, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_5664s"]
+[sub_resource type="CurveTexture" id="CurveTexture_ai0t8"]
 curve = SubResource("Curve_j45hi")
 
 [sub_resource type="Curve" id="Curve_ybxwb"]
@@ -39,7 +39,7 @@ _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, -200), 0.0, 0.0, 0, 0, Vector2(1, 200), 560.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_dxjgv"]
+[sub_resource type="CurveTexture" id="CurveTexture_j45hi"]
 curve = SubResource("Curve_ybxwb")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sb2wd"]
@@ -55,12 +55,12 @@ initial_velocity_min = 3.0
 initial_velocity_max = 7.0
 radial_accel_min = -2.23517e-06
 radial_accel_max = -2.23517e-06
-tangential_accel_curve = SubResource("CurveTexture_dxjgv")
+tangential_accel_curve = SubResource("CurveTexture_j45hi")
 scale_min = 0.15
 scale_max = 0.7
-scale_curve = SubResource("CurveTexture_5664s")
+scale_curve = SubResource("CurveTexture_ai0t8")
 color = Color(0.670588, 0.788235, 0.945098, 1)
-color_ramp = SubResource("GradientTexture1D_24q3t")
+color_ramp = SubResource("GradientTexture1D_0cbi2")
 hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 turbulence_noise_strength = 0.1
