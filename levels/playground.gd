@@ -42,3 +42,8 @@ func _on_player_die_from_killed() -> void:
 func _on_spawner_new_dead():
 	playerStat.gain_exp(1)
 	print(playerStat.currExp, "/", playerStat.expToUpgrade, "update to level", playerStat.level)
+	$CanvasLayer.update()
+
+
+func _on_player_please_update_hp_too() -> void:
+	$CanvasLayer.update()

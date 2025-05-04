@@ -2,7 +2,7 @@ extends CharacterBody3D
 @onready var nav = $NavigationAgent3D
 @export var enemy_speed = 0.25
 @export var attacking_speed = 5
-
+@export var enemy_damage = 1
 @onready var timer = $AttackTimer
 @onready var restingTimer = $restingTimer
 
@@ -70,4 +70,4 @@ func _on_hurt_area_body_entered(body):
 	if (body.is_in_group("player")):
 		var player_stats = body.get_node("Stats") as Stats
 		print("I'm hitt", player_stats.current_HP, "/", player_stats.max_HP)
-		player_stats.take_hit(1)
+		player_stats.take_hit(enemy_damage)

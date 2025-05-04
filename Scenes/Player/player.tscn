@@ -39,5 +39,6 @@ StartingWeapon = ExtResource("3_xpcdj")
 
 [node name="transition_screen" parent="." instance=ExtResource("5_htcer")]
 
+[connection signal="takenDam" from="Stats" to="." method="_on_stats_taken_dam"]
 [connection signal="upgrade" from="Stats" to="." method="_on_stats_upgrade"]
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]
