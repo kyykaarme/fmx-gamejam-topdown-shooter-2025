@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdbpe5elrdcji"]
+[gd_scene load_steps=17 format=3 uid="uid://cdbpe5elrdcji"]
 
-[ext_resource type="Script" path="res://levels/main.gd" id="1_6aaye"]
+[ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_i0110"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="2_3g3xx"]
+[ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="2_gi7rk"]
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="3_vgy8s"]
 [ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="4_o316a"]
-[ext_resource type="Shader" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="5_32yag"]
-[ext_resource type="PackedScene" path="res://Prefabs/platform19.tscn" id="6_qcyv2"]
-[ext_resource type="PackedScene" path="res://Prefabs/platform3.tscn" id="7_qei75"]
-[ext_resource type="PackedScene" path="res://Prefabs/platform7.tscn" id="8_kvamc"]
+[ext_resource type="Shader" uid="uid://d0h7xrbncout8" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="5_32yag"]
+[ext_resource type="PackedScene" uid="uid://bu1sw7htwcjf3" path="res://Prefabs/platform19.tscn" id="6_qcyv2"]
+[ext_resource type="PackedScene" uid="uid://ceaaiuq3hqfx8" path="res://Prefabs/platform3.tscn" id="7_qei75"]
+[ext_resource type="PackedScene" uid="uid://ccgw2fl1elu5v" path="res://Prefabs/platform7.tscn" id="8_kvamc"]
 [ext_resource type="PackedScene" uid="uid://mvbxi5nnguga" path="res://Scenes/Spawner/spawner.tscn" id="9_pgkq7"]
 [ext_resource type="PackedScene" uid="uid://bxyhhr1aoonle" path="res://Scenes/Enemies/robot.tscn" id="10_3hvkl"]
 
@@ -32,7 +33,9 @@ agent_radius = 1.0
 agent_max_climb = 0.05
 
 [node name="Level2" type="Node3D"]
-script = ExtResource("1_6aaye")
+script = ExtResource("1_i0110")
+
+[node name="transition_screen" parent="." instance=ExtResource("2_gi7rk")]
 
 [node name="InBetweenWaves" type="Timer" parent="."]
 wait_time = 2.0

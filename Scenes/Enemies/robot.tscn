@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bxyhhr1aoonle"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_2imak"]
+[ext_resource type="Script" uid="uid://caaffumr20a2l" path="res://Scenes/Enemies/enemies.gd" id="1_2imak"]
 [ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_hndbo"]
 [ext_resource type="Texture2D" uid="uid://cwr3fbr740e0t" path="res://Textures/robot.png" id="2_mgev7"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="3_os6m6"]
