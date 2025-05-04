@@ -51,7 +51,8 @@ transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.78865, 0.177426, 
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_jkfe4")
 autoplay = "default"
-frame_progress = 0.86581
+frame = 1
+frame_progress = 0.19327
 
 [node name="Body" type="MeshInstance3D" parent="."]
 
