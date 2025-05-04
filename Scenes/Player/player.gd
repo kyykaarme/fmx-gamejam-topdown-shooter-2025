@@ -1,16 +1,16 @@
 extends CharacterBody3D
 
-var _bullet_scene= load("res://Scenes/Bullet/Bullet.tscn")
-var health = 100
-var mouseSensibility = 1200
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+@export var _bullet_scene: PackedScene
+@export var health = 100
+@export var mouseSensibility = 1200
+@export var SPEED = 5.0
+@export var JUMP_VELOCITY = 4.5
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var gunControllor = $GunController
-#func _ready():
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _ready():
+	global_transform.origin = Vector3(0, 0, 0)
 
 
 func _physics_process(delta):
@@ -35,9 +35,3 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-	#if Input.is_action_just_pressed("Escape"): 
-		#capMouse = !capMouse
-		#if capMouse:
-			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		#else: 
-			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
