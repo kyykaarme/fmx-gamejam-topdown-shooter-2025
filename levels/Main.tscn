@@ -34,7 +34,7 @@ agent_max_climb = 0.05
 shader = ExtResource("6_rjp84")
 shader_parameter/size = Vector2(2, 1)
 
-[node name="Level2" type="Node3D"]
+[node name="Level3" type="Node3D"]
 script = ExtResource("1_lbxsr")
 
 [node name="InBetweenWaves" type="Timer" parent="."]

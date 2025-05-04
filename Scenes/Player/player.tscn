@@ -20,6 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.531361, 0.704901, -0.751066
 
 [node name="Sprite3D" type="Sprite3D" parent="Body"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.0339026, 0)
+gi_mode = 2
 billboard = 1
 texture = ExtResource("2_5khuw")
 
