@@ -21,7 +21,7 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ytnk"]
-size = Vector3(1, 2, 1)
+size = Vector3(1, 2.88953, 2000)
 
 [node name="Enemies" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_pqdxf")
@@ -34,7 +34,7 @@ path_height_offset = 0.1
 use_3d_avoidance = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.4896, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_ygs04")
 animation = &"run"
@@ -46,11 +46,12 @@ visible = false
 mesh = ExtResource("3_hcllo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118189, 0.415216, 999.5)
 shape = SubResource("BoxShape3D_1ytnk")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 
 [node name="Stats" parent="." instance=ExtResource("4_c2dip")]
-max_HP = 8
+max_HP = 6
 
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]

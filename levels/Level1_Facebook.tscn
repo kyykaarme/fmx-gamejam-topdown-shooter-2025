@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c25x84c63yj7b"]
+[gd_scene load_steps=19 format=3 uid="uid://c25x84c63yj7b"]
 
 [ext_resource type="Script" path="res://levels/main.gd" id="1_hwk5y"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="2_e126r"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dmjygqbn1k68g" path="res://Prefabs/obstacle_screen.tscn" id="11_a6wvi"]
 [ext_resource type="PackedScene" uid="uid://dcy5v87kecwxx" path="res://Prefabs/level_1_facebook_ground.tscn" id="11_gjgr2"]
 [ext_resource type="PackedScene" uid="uid://bxyhhr1aoonle" path="res://Scenes/Enemies/robot.tscn" id="11_ohkwt"]
+[ext_resource type="PackedScene" uid="uid://b7go8u3kqm1j8" path="res://Scenes/Enemies/ai_cat.tscn" id="12_uk3tb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 sky_top_color = Color(1, 0.429214, 0.823254, 1)
@@ -61,7 +62,7 @@ environment = SubResource("Environment_l5pxq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5539, 2.69851, 0)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.887219, -0.217822, -0.406687, 0.425833, 0.725814, 0.54024, 0.177503, -0.652493, 0.736713, -0.00693703, 59.5145, -109.348)
+transform = Transform3D(0.994916, -0.0342575, -0.0946973, 0.0991553, 0.169006, 0.980614, -0.017589, -0.985019, 0.171544, -0.00693703, 59.5145, -109.348)
 light_color = Color(0.605274, 0.605274, 0.605274, 1)
 light_energy = 2.0
 light_indirect_energy = 0.884
@@ -218,12 +219,12 @@ Enemy = ExtResource("11_5fx7w")
 [node name="Spawner3" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32181, -6.46002, 16.988)
 visible = false
-Enemy = ExtResource("11_ohkwt")
+Enemy = ExtResource("12_uk3tb")
 
 [node name="Spawner4" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9073, -0.565693, 35.5979)
 visible = false
-Enemy = ExtResource("11_ohkwt")
+Enemy = ExtResource("12_uk3tb")
 
 [node name="Spawner5" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.547, -2.90019, 12.2955)

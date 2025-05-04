@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7go8u3kqm1j8"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_ohc2x"]
+[ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="3_dapv6"]
+[ext_resource type="Texture2D" uid="uid://c7a3l1dl1evv0" path="res://Textures/ai_cat/Cat_animation.png" id="3_pef5f"]
+[ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="4_doqbm"]
+[ext_resource type="Texture2D" uid="uid://c4mfuejcsen8h" path="res://Textures/ai_cat/Cat_animation2.png" id="4_nirff"]
+[ext_resource type="Texture2D" uid="uid://dumye1h0y1kui" path="res://Textures/ai_cat/Cat_animation3.png" id="5_a7ddu"]
+[ext_resource type="Texture2D" uid="uid://blnee4ijx5agw" path="res://Textures/ai_cat/Cat_animation4.png" id="6_bixby"]
+[ext_resource type="Texture2D" uid="uid://baiq8hrocebc4" path="res://Textures/ai_cat/Cat_animation5.png" id="7_i33fr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a4p8d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pef5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nirff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a7ddu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bixby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i33fr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ytnk"]
+size = Vector3(1.11279, 2, 1)
+
+[node name="Enemies" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_ohc2x")
+enemy_speed = 5.0
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 2.0
+target_desired_distance = 2.0
+path_height_offset = 0.1
+use_3d_avoidance = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("3_dapv6")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_a4p8d")
+autoplay = "default"
+frame_progress = 0.295956
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0563965, 0.421875, 0)
+shape = SubResource("BoxShape3D_1ytnk")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="Stats" parent="." instance=ExtResource("4_doqbm")]
+max_HP = 2
+
+[connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]

@@ -1,12 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxyhhr1aoonle"]
+[gd_scene load_steps=8 format=3 uid="uid://bxyhhr1aoonle"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_2imak"]
 [ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_hndbo"]
 [ext_resource type="Texture2D" uid="uid://cwr3fbr740e0t" path="res://Textures/robot.png" id="2_mgev7"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="3_os6m6"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iunol"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxid2"]
+transparency = 1
+albedo_texture = ExtResource("2_mgev7")
+disable_receive_shadows = true
+billboard_mode = 1
+billboard_keep_scale = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ytnk"]
-size = Vector3(1, 2, 1)
+size = Vector3(1.1698, 2.0683, 1)
 
 [node name="Enemies" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_2imak")
@@ -18,10 +27,14 @@ target_desired_distance = 2.0
 path_height_offset = 0.1
 use_3d_avoidance = true
 
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.00231588, -0.566972, 0.45446)
+material_override = SubResource("StandardMaterial3D_iunol")
+cast_shadow = 3
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
-cast_shadow = 2
-billboard = 1
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_oxid2")
 texture = ExtResource("2_mgev7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -29,6 +42,7 @@ visible = false
 mesh = ExtResource("2_hndbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0435181, 0.0341492, 0)
 shape = SubResource("BoxShape3D_1ytnk")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
