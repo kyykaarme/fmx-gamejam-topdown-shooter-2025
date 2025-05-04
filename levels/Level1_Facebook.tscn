@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bkrwjerp5qapg" path="res://levels/main.gd" id="1_hwk5y"]
 [ext_resource type="PackedScene" uid="uid://c5duvjrnlpry" path="res://Scenes/Animations/transition_screen.tscn" id="2_5okk5"]
 [ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="5_gasdr"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://beoeutwfc8vjy" path="res://Prefabs/platform19.tscn" id="5_qa4id"]
 [ext_resource type="Shader" uid="uid://d0h7xrbncout8" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="6_3bj1t"]
 [ext_resource type="PackedScene" uid="uid://dfo5v2n8y6ebp" path="res://Prefabs/platform3.tscn" id="8_yl7nl"]
@@ -12,10 +13,21 @@
 [ext_resource type="PackedScene" uid="uid://dmjygqbn1k68g" path="res://Prefabs/obstacle_screen.tscn" id="11_a6wvi"]
 [ext_resource type="PackedScene" uid="uid://bovc721fo4kgv" path="res://Prefabs/level_1_facebook_ground.tscn" id="11_gjgr2"]
 [ext_resource type="PackedScene" path="res://Scenes/Enemies/robot.tscn" id="11_ohkwt"]
+=======
+[ext_resource type="PackedScene" uid="uid://bu1sw7htwcjf3" path="res://Prefabs/platform19.tscn" id="5_qa4id"]
+[ext_resource type="Shader" uid="uid://d0h7xrbncout8" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="6_3bj1t"]
+[ext_resource type="PackedScene" uid="uid://ceaaiuq3hqfx8" path="res://Prefabs/platform3.tscn" id="8_yl7nl"]
+[ext_resource type="PackedScene" uid="uid://mvbxi5nnguga" path="res://Scenes/Spawner/spawner.tscn" id="9_vnby0"]
+[ext_resource type="PackedScene" uid="uid://ccgw2fl1elu5v" path="res://Prefabs/platform7.tscn" id="10_cpwkd"]
+[ext_resource type="PackedScene" uid="uid://dfjwe42bpotq8" path="res://Scenes/Enemies/grandma.tscn" id="11_5fx7w"]
+[ext_resource type="PackedScene" uid="uid://dmjygqbn1k68g" path="res://Prefabs/obstacle_screen.tscn" id="11_a6wvi"]
+[ext_resource type="PackedScene" uid="uid://bovc721fo4kgv" path="res://Prefabs/level_1_facebook_ground.tscn" id="11_gjgr2"]
+[ext_resource type="PackedScene" uid="uid://bxyhhr1aoonle" path="res://Scenes/Enemies/robot.tscn" id="11_ohkwt"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://b7go8u3kqm1j8" path="res://Scenes/Enemies/ai_cat.tscn" id="12_uk3tb"]
-[ext_resource type="Material" uid="uid://dybu8u8hsgmlk" path="res://Materials/cage.tres" id="14_c1428"]
+[ext_resource type="Material" path="res://Materials/cage.tres" id="14_c1428"]
 [ext_resource type="ArrayMesh" uid="uid://dwvqmg5f6e4lp" path="res://Models/cage_Cylinder_007.res" id="15_6ltgd"]
-[ext_resource type="PackedScene" uid="uid://cg5usx10g7n7u" path="res://Scenes/Player/cartoon_player.tscn" id="16_h8u1d"]
+[ext_resource type="PackedScene" path="res://Scenes/Player/cartoon_player.tscn" id="16_h8u1d"]
 [ext_resource type="PackedScene" uid="uid://cr1aki2r5nitp" path="res://UI/In_game_UI.tscn" id="16_qesip"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kxhn7"]
