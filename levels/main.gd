@@ -1,6 +1,6 @@
 extends Node3D
 @onready var target = $Player
-
+@onready var transition = $transition_screen
 @onready var Cam = $Camera3d as Camera3D
 var ray_origin = Vector3()
 var ray_target = Vector3()
@@ -26,3 +26,13 @@ func _physics_process(delta):
 			var pos = intersection.position
 			var look_at_me = Vector3(pos.x, $Player/Body.global_position.y, pos.z)
 			$Player/Body.look_at(look_at_me, Vector3.UP) 
+
+
+func _on_player_die_from_falling() -> void:
+	transition.play("fade_out")
+	print("dieeee")
+
+
+func _on_player_die_from_killed() -> void:
+	transition.play("fade_out")
+	print("dieeee")

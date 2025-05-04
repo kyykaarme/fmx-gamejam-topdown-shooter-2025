@@ -7,8 +7,7 @@ extends CharacterBody3D
 @onready var restingTimer = $restingTimer
 var gravity = 9.8
 
-enum state {
-	SEEKING,
+enum state {	SEEKING,
 	ATTACKING,
 	RESTING,
 }
@@ -46,9 +45,13 @@ func move_and_attack():
 	if distance_to_player < 1.0: 
 		current_state = state.RESTING	
 	
-func _on_stats_you_died_signal() -> void:
+	
+#Take Hit
+func _on_stats_you_died_signal():
 	queue_free()
 
+
+#Detecting Player
 func _on_area_3d_body_entered(body):
 	if (body.is_in_group("player")):
 		timer.start()
@@ -57,13 +60,13 @@ func _on_area_3d_body_entered(body):
 func _on_attack_timer_timeout():
 	current_state = state.RESTING
 
+func _on_resting_timer_timeout():
+	current_state = state.SEEKING
+
+#Hurting Player
 
 func _on_hurt_area_body_entered(body):
 	if (body.is_in_group("player")):
 		var player_stats = body.get_node("Stats") as Stats
 		print("I'm hitt", player_stats.current_HP, "/", player_stats.max_HP)
 		player_stats.take_hit(1)
-
-
-func _on_resting_timer_timeout():
-	current_state = state.SEEKING
