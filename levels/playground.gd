@@ -4,6 +4,7 @@ extends Node3D
 @onready var Cam = $Camera3d as Camera3D
 var ray_origin = Vector3()
 var ray_target = Vector3()
+@onready var playerStat = target.get_node("Stats") as Stats
 
 func _process(delta):
 	if(target):
@@ -30,9 +31,14 @@ func _physics_process(delta):
 
 func _on_player_die_from_falling() -> void:
 	transition.play("fade_out")
-	print("dieeee")
+	#print("dieeee")
 
 
 func _on_player_die_from_killed() -> void:
 	transition.play("fade_out")
-	print("dieeee")
+	#print("dieeee")
+
+
+func _on_spawner_new_dead():
+	playerStat.gain_exp(1)
+	print(playerStat.currExp, "/", playerStat.expToUpgrade, "update to level", playerStat.level)

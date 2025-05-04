@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bab4e2ni4wqj5"]
+[gd_scene load_steps=18 format=3 uid="uid://k08jd6gj0bak"]
 
 [ext_resource type="Material" uid="uid://jv8m5pcakq4p" path="res://Materials/bird.tres" id="1_n17gi"]
 [ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_kxsyy"]
@@ -9,9 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://2mn0py0r535s" path="res://Prefabs/hexgroundbase.tscn" id="7_ng7yl"]
 [ext_resource type="PackedScene" uid="uid://dmjygqbn1k68g" path="res://Prefabs/obstacle_screen.tscn" id="8_4kk48"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="9_s5n4r"]
-[ext_resource type="PackedScene" uid="uid://bu1sw7htwcjf3" path="res://Prefabs/platform19.tscn" id="10_4turl"]
-[ext_resource type="PackedScene" uid="uid://ceaaiuq3hqfx8" path="res://Prefabs/platform3.tscn" id="11_pkfp3"]
-[ext_resource type="PackedScene" uid="uid://ccgw2fl1elu5v" path="res://Prefabs/platform7.tscn" id="12_ltj7o"]
+[ext_resource type="PackedScene" uid="uid://beoeutwfc8vjy" path="res://Prefabs/platform19.tscn" id="10_4turl"]
+[ext_resource type="PackedScene" uid="uid://dfo5v2n8y6ebp" path="res://Prefabs/platform3.tscn" id="11_pkfp3"]
+[ext_resource type="PackedScene" uid="uid://dq2l2uvrk5jlj" path="res://Prefabs/platform7.tscn" id="12_ltj7o"]
+[ext_resource type="PackedScene" uid="uid://b0peceods0337" path="res://Models/cage.glb" id="13_qrh3c"]
+[ext_resource type="Material" uid="uid://dybu8u8hsgmlk" path="res://Materials/cage.tres" id="14_hprk6"]
+[ext_resource type="ArrayMesh" uid="uid://c2fumvcsw4jtl" path="res://Models/cage_Cylinder_007.res" id="15_g7gs5"]
+[ext_resource type="PackedScene" uid="uid://bfrh3cs6un6wv" path="res://Prefabs/fb_like_sphere.tscn" id="16_hprk6"]
 
 [sub_resource type="Environment" id="Environment_1ynxw"]
 
@@ -62,3 +66,16 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 37.7812, 9.52119, -28.6686)
 
 [node name="PlatMed" parent="." instance=ExtResource("12_ltj7o")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 32.7881, 9.52119, -28.2008)
+
+[node name="cage" parent="." instance=ExtResource("13_qrh3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.254, 9.52119, -32.1059)
+
+[node name="CageCylinder007" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5222, 9.52118, -30.3375)
+material_override = ExtResource("14_hprk6")
+mesh = ExtResource("15_g7gs5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CageCylinder007"]
+root_node = NodePath("../..")
+
+[node name="FbLikeSphere" parent="." instance=ExtResource("16_hprk6")]

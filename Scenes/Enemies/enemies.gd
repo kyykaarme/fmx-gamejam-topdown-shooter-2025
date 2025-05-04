@@ -5,6 +5,7 @@ extends CharacterBody3D
 
 @onready var timer = $AttackTimer
 @onready var restingTimer = $restingTimer
+
 var gravity = 9.8
 
 enum state {	SEEKING,
