@@ -22,9 +22,10 @@ func shoot():
 		scene_root.add_child(instance)
 		canShoot = false
 		timer.start()
+	if delay > 0:
+		delay -= 0.1
 
 
 
 func _on_timer_timeout():
 	canShoot = true
-	timer.wait_time -= 0.1

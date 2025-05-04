@@ -41,10 +41,3 @@ func _physics_process(delta):
 			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		#else: 
 			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-		
-func take_damage(amount: int):
-	health -= amount
-	print("Player health:", health)
-	if health <= 0:
-		print("Player died")

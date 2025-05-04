@@ -20,7 +20,7 @@ func _physics_process(delta):
 	params.to = ray_target
 	var intersection = space_state.intersect_ray(params)
 	if not intersection.is_empty():
-		print("NOT EMPTY")
+		#print("NOT EMPTY")
 		var pos = intersection.position
-		var look_at_me = Vector3(pos.x, $Player.global_position.y, pos.z)
-		$Player.look_at(look_at_me, Vector3.UP) 
+		var look_at_me = Vector3(pos.x, $Player/Body.global_position.y, pos.z)
+		$Player/Body.look_at(look_at_me, Vector3.UP) 
