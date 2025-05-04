@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bv5ysoqn7l2dv"
+path="res://.godot/imported/Level2_TikTok_ColliderMesh.obj-5fcc66a6ca6c96a27472edf2e3376a2a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Level2_TikTok_ColliderMesh.obj-5fcc66a6ca6c96a27472edf2e3376a2a.mesh"]
+
+source_file="res://Models/Level2_TikTok_ColliderMesh.obj"
+dest_files=["res://.godot/imported/Level2_TikTok_ColliderMesh.obj-5fcc66a6ca6c96a27472edf2e3376a2a.mesh", "res://.godot/imported/Level2_TikTok_ColliderMesh.obj-5fcc66a6ca6c96a27472edf2e3376a2a.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
