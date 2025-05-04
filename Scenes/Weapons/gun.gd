@@ -2,7 +2,7 @@ extends Node3D
 
 @export var Bullet: PackedScene
 @export var muzzle_speed = 30
-@export var delay = 1
+@export var delay = 0.1
 @onready var pos=$Gun/Pos
 @onready var timer = $Timer
 var canShoot = true
