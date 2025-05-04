@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://c8g5h58hphuwc"]
+
+[ext_resource type="Texture2D" uid="uid://ccnl55nvyqbj" path="res://Materials/Textures/toktiktower_DefaultMaterial_BaseColor.png" id="1_hr14o"]
+[ext_resource type="Texture2D" uid="uid://cgblcmjln3tmi" path="res://Materials/Textures/toktiktower_DefaultMaterial_Emissive.png" id="2_jcuyv"]
+[ext_resource type="Texture2D" uid="uid://bqa7ponr12rlb" path="res://Materials/Textures/toktiktower_DefaultMaterial_Metallic.png" id="3_4k1wm"]
+[ext_resource type="Texture2D" uid="uid://bbfmggpih1qwl" path="res://Materials/Textures/toktiktower_DefaultMaterial_Roughness.png" id="4_jc0ff"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_hr14o")
+metallic = 1.0
+metallic_texture = ExtResource("3_4k1wm")
+roughness_texture = ExtResource("4_jc0ff")
+emission_enabled = true
+emission_texture = ExtResource("2_jcuyv")

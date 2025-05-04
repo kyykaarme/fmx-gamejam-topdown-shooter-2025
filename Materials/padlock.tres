@@ -1,3 +1,14 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://diue52cqecmug"]
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://diue52cqecmug"]
+
+[ext_resource type="Texture2D" uid="uid://kemmnx1wpoxc" path="res://Materials/Textures/comicallylargepadlockmesh_DefaultMaterial_BaseColor.png" id="1_7kii3"]
+[ext_resource type="Texture2D" uid="uid://bv4hhn1hf4xu2" path="res://Materials/Textures/comicallylargepadlockmesh_DefaultMaterial_Metallic.png" id="2_7vy1o"]
+[ext_resource type="Texture2D" uid="uid://hj6volcaw5lc" path="res://Materials/Textures/comicallylargepadlockmesh_DefaultMaterial_Normal.png" id="3_tyonx"]
+[ext_resource type="Texture2D" uid="uid://cq74wihy88up6" path="res://Materials/Textures/comicallylargepadlockmesh_DefaultMaterial_Roughness.png" id="4_s7d2s"]
 
 [resource]
+albedo_texture = ExtResource("1_7kii3")
+metallic = 1.0
+metallic_texture = ExtResource("2_7vy1o")
+roughness_texture = ExtResource("4_s7d2s")
+normal_enabled = true
+normal_texture = ExtResource("3_tyonx")
