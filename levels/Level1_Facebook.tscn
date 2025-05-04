@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://c25x84c63yj7b"]
 
-[ext_resource type="Script" uid="uid://bkrwjerp5qapg" path="res://levels/main.gd" id="1_hwk5y"]
+[ext_resource type="Script" path="res://levels/main.gd" id="1_hwk5y"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="2_e126r"]
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="3_lxc4o"]
 [ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="5_gasdr"]
 [ext_resource type="PackedScene" path="res://Prefabs/platform19.tscn" id="5_qa4id"]
-[ext_resource type="Shader" uid="uid://d0h7xrbncout8" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="6_3bj1t"]
+[ext_resource type="Shader" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="6_3bj1t"]
 [ext_resource type="PackedScene" path="res://Prefabs/platform3.tscn" id="8_yl7nl"]
 [ext_resource type="PackedScene" uid="uid://mvbxi5nnguga" path="res://Scenes/Spawner/spawner.tscn" id="9_vnby0"]
 [ext_resource type="PackedScene" path="res://Prefabs/platform7.tscn" id="10_cpwkd"]
