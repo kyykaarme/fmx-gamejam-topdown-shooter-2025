@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var enemy_damage = 1
 @onready var timer = $AttackTimer
 @onready var restingTimer = $restingTimer
+@onready var FX = $Explosion
 
 var gravity = 9.8
 
@@ -49,6 +50,9 @@ func move_and_attack():
 	
 #Take Hit
 func _on_stats_you_died_signal():
+	FX.emitting = true  # start particle effect
+	$MeshInstance3D.visible = false
+	await get_tree().create_timer(1.5).timeout  # wait 0.5 seconds
 	queue_free()
 
 

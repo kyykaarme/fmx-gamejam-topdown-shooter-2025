@@ -6,7 +6,7 @@ class_name Stats
 
 #LEVELLING SYS
 var currExp = 0
-var expToUpgrade = 1
+var expToUpgrade = 3
 signal you_died_signal
 signal upgrade
 signal takenDam
@@ -27,7 +27,7 @@ func get_required_exp(level):
 	if(level == 1):
 		return 1
 	else:
-		return round(pow(level,1.8))
+		return round(pow(level,1.2))
 
 
 func gain_exp(amount):
