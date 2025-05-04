@@ -1,0 +1,16 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1746296409
+gpu_particles_3d.tres::VisualShader::1854181426113792218::1746289967::0::1::::<><>::
+gpu_particles_3d.tscn::PackedScene::7443712202230599305::1746296408::0::1::::<><>::uid://c1b5vrujtejax::::res://SpecialFX/models/heart.obj<>res://SpecialFX/shaders/new_shader_material.gdshader<>uid://dq46u35wtfgmg::::res://SpecialFX/models/quadmesh.obj<>uid://cna7hup0o2cbr::::res://SpecialFX/models/lightning.obj
+icon.svg::CompressedTexture2D::4906328435245480317::1746268735::1746268756::1::::<><>::
+::res://SpecialFX/::1746296408
+::res://SpecialFX/models/::1746291384
+heart.fbx::PackedScene::3900127947884213338::1746277106::1746296409::1::::<><>::
+heart.obj::Mesh::6601675615411618219::1746277333::1746296409::1::::<><>::
+lightning.obj::Mesh::5687252853801211219::1746291379::1746296409::1::::<><>::
+quadmesh.obj::Mesh::8344069964832523214::1746284791::1746296409::1::::<><>::
+::res://SpecialFX/shaders/::1746296408
+Lightning.png::CompressedTexture2D::3026917254560909050::1746289716::1746296409::1::::<><>::
+Lightning_nontilable.png::CompressedTexture2D::3767677489236731252::1746290532::1746296409::1::::<><>::
+new_shader_material.gdshader::Shader::-1::1746296408::0::1::::<><>::
+new_shader_material.tres::ShaderMaterial::148160715348625371::1746296408::0::1::::<><>::res://SpecialFX/shaders/new_shader_material.gdshader
