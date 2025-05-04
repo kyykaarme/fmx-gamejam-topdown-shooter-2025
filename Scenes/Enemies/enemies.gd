@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var attacking_speed = 5
 
 @onready var timer = $AttackTimer
+@onready var restingTimer = $restingTimer
 var gravity = 9.8
 
 enum state {
@@ -29,11 +30,7 @@ func _process(delta):
 		state.ATTACKING:
 			move_and_attack()
 		state.RESTING:
-			if not timer.is_stopped():
-				move_and_slide()
-			else:
-				timer.start(1.5)  # 1.5 seconds of resting
-				timer.connect("timeout", Callable(self, "_on_resting_done"))
+			timer.start()
 	
 func target_position(target):
 	nav.target_position = target
@@ -44,26 +41,29 @@ func move_and_attack():
 	var new_velocity = (next_location - current_location).normalized() * attacking_speed
 	velocity = velocity.move_toward(new_velocity, 0.25)
 	move_and_slide()
-		# Check distance to the player
-	var distance_to_player = current_location.distance_to(next_location)
-
-	# If you want to stop moving if you're too close
-	if distance_to_player < 1.0: 
-		current_state = state.RESTING
 	
+	var distance_to_player = current_location.distance_to(next_location)
+	if distance_to_player < 1.0: 
+		current_state = state.RESTING	
 	
 func _on_stats_you_died_signal() -> void:
 	queue_free()
-
 
 func _on_area_3d_body_entered(body):
 	if (body.is_in_group("player")):
 		timer.start()
 		current_state = state.ATTACKING
 
-
 func _on_attack_timer_timeout():
-	current_state = state.SEEKING
+	current_state = state.RESTING
 
-func _on_resting_done():
-	current_state = state.ATTACKING
+
+func _on_hurt_area_body_entered(body):
+	if (body.is_in_group("player")):
+		var player_stats = body.get_node("Stats") as Stats
+		print("I'm hitt", player_stats.current_HP, "/", player_stats.max_HP)
+		player_stats.take_hit(1)
+
+
+func _on_resting_timer_timeout():
+	current_state = state.SEEKING

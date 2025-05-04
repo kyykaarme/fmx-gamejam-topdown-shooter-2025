@@ -35,3 +35,8 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_stats_you_died_signal() -> void:
+	queue_free()
+	print("GAME OVER")
