@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://7gv6q50fuutj"]
+[gd_scene load_steps=9 format=3 uid="uid://7gv6q50fuutj"]
 
 [ext_resource type="Script" uid="uid://ewiprybcakb5" path="res://Scenes/Player/player.gd" id="1_1w47b"]
 [ext_resource type="Script" uid="uid://briirfrg1a73j" path="res://Scenes/Player/gun_controller.gd" id="2_a3d8c"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="2_mtuoh"]
 [ext_resource type="PackedScene" uid="uid://cl1w7h80ye6ls" path="res://Scenes/Weapons/Gun.tscn" id="3_xpcdj"]
+[ext_resource type="PackedScene" uid="uid://c5duvjrnlpry" path="res://Scenes/Animations/transition_screen.tscn" id="5_htcer"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mtuoh"]
 
@@ -36,4 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.531361, 0.704901, -0.751066
 script = ExtResource("2_a3d8c")
 StartingWeapon = ExtResource("3_xpcdj")
 
+[node name="transition_screen" parent="." instance=ExtResource("5_htcer")]
+
+[connection signal="upgrade" from="Stats" to="." method="_on_stats_upgrade"]
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]

@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var mouseSensibility = 1200
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
+
 signal die_from_killed
 signal die_from_falling
 
@@ -18,6 +19,7 @@ var dash_direction = Vector3.ZERO
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var gunControllor = $GunController
+@onready var transition = $transition_screen
 
 func _ready():
 	global_transform.origin = Vector3(0, 0, 0)
@@ -85,3 +87,7 @@ func _fell_off_map():
 	queue_free()
 	emit_signal("die_from_falling")
 	print("You fell off the map.")
+
+
+func _on_stats_upgrade():
+	transition.play("fade_in")

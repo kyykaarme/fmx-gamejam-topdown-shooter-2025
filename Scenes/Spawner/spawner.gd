@@ -11,6 +11,7 @@ var enemies_left_in_wave = 0
 var total_enemies_this_wave = 0
 var spawned_enemies = 0
 var dead_enemies = 0
+signal new_dead
 
 func _ready():
 	timer.wait_time = seconds_between_spawns
@@ -46,6 +47,7 @@ func _on_in_between_waves_timeout():
 
 func _on_enemy_died():
 	dead_enemies += 1
+	emit_signal("new_dead")
 	print("Enemy died! Dead count this wave: %d" % dead_enemies)
 
 	if dead_enemies >= total_enemies_this_wave:

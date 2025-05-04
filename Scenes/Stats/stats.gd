@@ -26,7 +26,7 @@ func get_required_exp(level):
 	if(level == 1):
 		return 1
 	else:
-		return round(pow(level,1.8) + level * 4)
+		return round(pow(level,1.8))
 
 
 func gain_exp(amount):
@@ -38,4 +38,7 @@ func die():
 	emit_signal("you_died_signal")
 	
 func get_upgrade():
+	level += 1
+	currExp = 0
+	expToUpgrade = get_required_exp(level + 1)
 	emit_signal("upgrade")
