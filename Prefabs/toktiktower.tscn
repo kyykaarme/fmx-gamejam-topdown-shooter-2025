@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2nat3byhsbkq"]
+
+[ext_resource type="Material" uid="uid://c8g5h58hphuwc" path="res://Materials/tiktoktower.tres" id="1_x3p5y"]
+[ext_resource type="ArrayMesh" uid="uid://b5i5cbc3dd3t1" path="res://Models/toktiktower.obj" id="2_vai04"]
+
+[node name="Toktiktower" type="MeshInstance3D"]
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 0, 0, 0)
+material_override = ExtResource("1_x3p5y")
+mesh = ExtResource("2_vai04")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.15765, -0.206898)
+visible = false
+use_collision = true
+radius = 1.49023
+height = 10.6256

@@ -24,3 +24,81 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00409079)
 shape = SubResource("ConcavePolygonShape3D_ra5k4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3941, 1.07971, -5.04381)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 5.29227, 1.07971, -2.51132)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 5.61616, 1.11112, 0.477417)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 4.70431, 1.06485, 3.40392)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.69006, 1.11059, 1.85239)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.91614, 1.08596, -1.10024)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.72602, 1.08596, -3.85203)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.676772, 1.08596, -0.728974)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.691661, 1.05016, -3.80331)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -4.61829, 1.05016, -0.533619)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.20888, 1.05016, -3.31213)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.68858, 2.21498, 4.11899)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.88459, 2.18166, 5.51321)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 6.0
