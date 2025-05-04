@@ -1,20 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctahsvj88g1om"]
+
+[gd_scene load_steps=11 format=3 uid="uid://ctahsvj88g1om"]
+
 
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_2jfjj"]
 [ext_resource type="Script" uid="uid://bkrwjerp5qapg" path="res://levels/main.gd" id="1_lbxsr"]
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="2_ntnxr"]
 [ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="3_lbxsr"]
-[ext_resource type="Shader" uid="uid://d0h7xrbncout8" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="6_rjp84"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
+[ext_resource type="Script" uid="uid://bym7uxuykagfe" path="res://Scenes/Camera/camera_grip.gd" id="5_lbxsr"]
+[ext_resource type="PackedScene" uid="uid://mvbxi5nnguga" path="res://Scenes/Spawner/spawner.tscn" id="6_vmibe"]
+[ext_resource type="PackedScene" uid="uid://dq2l2uvrk5jlj" path="res://Prefabs/platform7.tscn" id="7_vmibe"]
+[ext_resource type="PackedScene" uid="uid://bovc721fo4kgv" path="res://Prefabs/level_1_facebook_ground.tscn" id="8_bvijt"]
 
-[sub_resource type="Sky" id="Sky_ivwug"]
-sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
-
-[sub_resource type="Environment" id="Environment_l5pxq"]
-background_mode = 2
-background_color = Color(0.2139, 0.570975, 0.69, 1)
-sky = SubResource("Sky_ivwug")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gtf0"]
 albedo_texture = ExtResource("3_lbxsr")
@@ -45,7 +42,7 @@ autostart = true
 environment = SubResource("Environment_l5pxq")
 
 [node name="Player" parent="." instance=ExtResource("1_2jfjj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30.1199, -10.5689)
 
 [node name="ObstaclesHolder" type="Node3D" parent="."]
 transform = Transform3D(2, 1.78814e-07, 0, 3.72529e-08, 5, -9.53674e-07, -1.11759e-08, -2.38419e-07, 30, 12.0086, 2.95161, -0.0307541)
@@ -162,14 +159,11 @@ current = true
 fov = 70.0
 far = 100.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera3d"]
+[node name="Spawner" parent="." instance=ExtResource("6_vmibe")]
 
-[node name="ColorRect" type="ColorRect" parent="Camera3d/CanvasLayer"]
-material = SubResource("ShaderMaterial_2hpmh")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PlatMed" parent="." instance=ExtResource("7_vmibe")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.12625, 3.11278, 5.80528)
 
-[connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
+[node name="Level1FacebookBaseMesh" parent="." instance=ExtResource("8_bvijt")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.34248, 16.0888, -2.4856)
+
