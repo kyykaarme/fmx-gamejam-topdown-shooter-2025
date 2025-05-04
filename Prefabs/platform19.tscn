@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://beoeutwfc8vjy"]
+[gd_scene load_steps=3 format=3 uid="uid://bu1sw7htwcjf3"]
 
-[ext_resource type="Material" uid="uid://dr1qombka2f8n" path="res://Materials/groundlight.tres" id="1_frb00"]
+[ext_resource type="Material" path="res://Materials/groundlight.tres" id="1_frb00"]
 [ext_resource type="ArrayMesh" uid="uid://dvqp07udbre4" path="res://Models/plat_larg.obj" id="2_lwexu"]
 
 [node name="PlatLarg" type="MeshInstance3D"]

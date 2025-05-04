@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq2l2uvrk5jlj"]
+[gd_scene load_steps=3 format=3 uid="uid://ccgw2fl1elu5v"]
 
-[ext_resource type="Material" uid="uid://dr1qombka2f8n" path="res://Materials/groundlight.tres" id="1_b31oa"]
+[ext_resource type="Material" path="res://Materials/groundlight.tres" id="1_b31oa"]
 [ext_resource type="ArrayMesh" uid="uid://ccncmx0b8t5sk" path="res://Models/plat_med.obj" id="2_uon3q"]
 
 [node name="PlatMed" type="MeshInstance3D"]

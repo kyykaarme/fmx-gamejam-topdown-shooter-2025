@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://df3n1d7k65hut"]
+[gd_scene load_steps=8 format=3 uid="uid://c3xxguqvxer0h"]
 
 [ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_qxjbg"]
-[ext_resource type="PackedScene" uid="uid://mvbxi5nnguga" path="res://Scenes/Spawner/spawner.tscn" id="2_1y5p2"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="2_wcyx1"]
+[ext_resource type="PackedScene" uid="uid://dbduds4bsaaby" path="res://Scenes/Bullet/Bullet.tscn" id="3_1y5p2"]
 [ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="3_ek3o3"]
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="4_wcyx1"]
+[ext_resource type="PackedScene" uid="uid://kvu124vpgs4h" path="res://Scenes/Enemies/enemies.tscn" id="5_i7xqd"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ek3o3"]
 vertices = PackedVector3Array(-8.98, 0.4, -8.98, -8.98, 0.4, 8.99, 8.99, 0.4, 8.99, 8.99, 0.4, -8.98)
@@ -17,11 +18,18 @@ agent_max_climb = 0.05
 [node name="Playground" type="Node3D"]
 script = ExtResource("1_qxjbg")
 
-[node name="Spawner" parent="." instance=ExtResource("2_1y5p2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08618, 2.91281, 6.25675)
-
 [node name="Player" parent="." instance=ExtResource("2_wcyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+_bullet_scene = ExtResource("3_1y5p2")
+
+[node name="Enemies2" parent="." instance=ExtResource("5_i7xqd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.92464, 1.00015, 6.81928)
+
+[node name="Enemies" parent="." instance=ExtResource("5_i7xqd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.84156, 1.00015, -4.81351)
+
+[node name="Enemies3" parent="." instance=ExtResource("5_i7xqd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32227, 1.00015, -4.81351)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)
@@ -49,6 +57,7 @@ use_collision = true
 size = Vector3(5, 1, 1)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8323, 0.634503, -0.275581)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8323, 2.31962, -0.275581)
 use_collision = true
-size = Vector3(1, 1, 5)
+collision_mask = 7
+size = Vector3(1, 4.37024, 5)
