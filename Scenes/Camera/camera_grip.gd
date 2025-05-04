@@ -12,7 +12,7 @@ func _process(delta):
 		var desired_position = Vector3(
 			target_position.x,
 			target_position.y + 10,
-			target_position.z + 10
+			target_position.z + 7
 		)
 
 		# Smooth follow using linear interpolation
