@@ -17,11 +17,11 @@ agent_max_climb = 0.05
 [node name="Playground" type="Node3D"]
 script = ExtResource("1_qxjbg")
 
-[node name="Spawner" parent="." instance=ExtResource("2_1y5p2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08618, 2.91281, 6.25675)
-
 [node name="Player" parent="." instance=ExtResource("2_wcyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Spawner" parent="." instance=ExtResource("2_1y5p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08618, 2.91281, 6.25675)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)

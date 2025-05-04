@@ -72,4 +72,6 @@ Escape={
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 anti_aliasing/canvas_textures/default_texture_repeat=1

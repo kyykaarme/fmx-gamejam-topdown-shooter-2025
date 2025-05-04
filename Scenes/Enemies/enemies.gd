@@ -1,5 +1,4 @@
 extends CharacterBody3D
-
 @onready var nav = $NavigationAgent3D
 @export var enemy_speed = 2
 var gravity = 9.8
