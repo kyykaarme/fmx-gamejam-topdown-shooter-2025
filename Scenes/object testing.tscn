@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://k08jd6gj0bak"]
+[gd_scene load_steps=21 format=3 uid="uid://k08jd6gj0bak"]
 
 [ext_resource type="Material" uid="uid://jv8m5pcakq4p" path="res://Materials/bird.tres" id="1_n17gi"]
 [ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_kxsyy"]
@@ -12,14 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://beoeutwfc8vjy" path="res://Prefabs/platform19.tscn" id="10_4turl"]
 [ext_resource type="PackedScene" uid="uid://dfo5v2n8y6ebp" path="res://Prefabs/platform3.tscn" id="11_pkfp3"]
 [ext_resource type="PackedScene" uid="uid://dq2l2uvrk5jlj" path="res://Prefabs/platform7.tscn" id="12_ltj7o"]
-[ext_resource type="PackedScene" uid="uid://b0peceods0337" path="res://Models/cage.glb" id="13_qrh3c"]
+[ext_resource type="PackedScene" uid="uid://brk3a3yv2qafj" path="res://Models/cage.glb" id="13_qrh3c"]
 [ext_resource type="Material" uid="uid://dybu8u8hsgmlk" path="res://Materials/cage.tres" id="14_hprk6"]
 [ext_resource type="ArrayMesh" uid="uid://dwvqmg5f6e4lp" path="res://Models/cage_Cylinder_007.res" id="15_g7gs5"]
 [ext_resource type="PackedScene" uid="uid://dvlo45255erl" path="res://Prefabs/fb_emoji_like.tscn" id="16_a17av"]
-[ext_resource type="Material" uid="uid://diue52cqecmug" path="res://Materials/padlock.tres" id="17_xoni7"]
+[ext_resource type="Material" path="res://Materials/padlock.tres" id="17_xoni7"]
 [ext_resource type="ArrayMesh" uid="uid://cuo8t7dpr3c3s" path="res://Models/comicallylargepadlockmesh.obj" id="18_0037y"]
-[ext_resource type="Material" uid="uid://c8g5h58hphuwc" path="res://Materials/tiktoktower.tres" id="19_0037y"]
-[ext_resource type="ArrayMesh" uid="uid://b5i5cbc3dd3t1" path="res://Models/toktiktower.obj" id="20_06fej"]
+[ext_resource type="PackedScene" uid="uid://c2nat3byhsbkq" path="res://Prefabs/toktiktower.tscn" id="19_xoni7"]
 
 [sub_resource type="Environment" id="Environment_1ynxw"]
 
@@ -90,7 +89,5 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 55.9501, 10.5212, -26.3
 material_override = ExtResource("17_xoni7")
 mesh = ExtResource("18_0037y")
 
-[node name="Toktiktower" type="MeshInstance3D" parent="."]
+[node name="Toktiktower" parent="." instance=ExtResource("19_xoni7")]
 transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 52.2004, 18.6892, -35.5978)
-material_override = ExtResource("19_0037y")
-mesh = ExtResource("20_06fej")
