@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://kvu124vpgs4h"]
 
-[ext_resource type="Script" uid="uid://caaffumr20a2l" path="res://Scenes/Enemies/enemies.gd" id="1_55a3u"]
+[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_55a3u"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="3_ai0t8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0cbi2"]
@@ -35,7 +35,6 @@ point_count = 2
 curve = SubResource("Curve_j45hi")
 
 [sub_resource type="Curve" id="Curve_ybxwb"]
-_limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, -200), 0.0, 0.0, 0, 0, Vector2(1, 200), 560.0, 0.0, 0, 0]
 point_count = 2
 
@@ -86,7 +85,10 @@ path_height_offset = 0.1
 use_3d_avoidance = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_0cbi2")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_1ytnk")
