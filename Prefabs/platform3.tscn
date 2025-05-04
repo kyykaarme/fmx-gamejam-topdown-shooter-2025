@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfo5v2n8y6ebp"]
+
+[ext_resource type="Material" uid="uid://dr1qombka2f8n" path="res://Materials/groundlight.tres" id="1_0pmv7"]
+[ext_resource type="ArrayMesh" uid="uid://bp8nd4kaq26ge" path="res://Models/plat_smol.obj" id="2_1ph12"]
+
+[node name="PlatSmol" type="MeshInstance3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+material_override = ExtResource("1_0pmv7")
+mesh = ExtResource("2_1ph12")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0190125, 0.0883276, 0.15004)
+visible = false
+use_collision = true
+size = Vector3(0.694275, 0.0228424, 0.378082)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0112381, 0.0883276, -0.147694)
+visible = false
+use_collision = true
+size = Vector3(0.364914, 0.0228424, 0.424263)

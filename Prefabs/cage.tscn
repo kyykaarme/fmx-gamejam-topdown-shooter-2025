@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dux3fopna1lpy"]
+
+[ext_resource type="PackedScene" uid="uid://b0peceods0337" path="res://Models/cage.glb" id="1_7cmry"]
+[ext_resource type="Material" uid="uid://dybu8u8hsgmlk" path="res://Materials/cage.tres" id="2_acb86"]
+
+[node name="cage" instance=ExtResource("1_7cmry")]
+
+[node name="Cage2" parent="GlassDome/Skeleton3D" index="0"]
+material_override = ExtResource("2_acb86")

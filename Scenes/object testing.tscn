@@ -1,0 +1,64 @@
+[gd_scene load_steps=14 format=3 uid="uid://k08jd6gj0bak"]
+
+[ext_resource type="Material" uid="uid://jv8m5pcakq4p" path="res://Materials/bird.tres" id="1_n17gi"]
+[ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_kxsyy"]
+[ext_resource type="Material" uid="uid://dyu2rylpkw5ep" path="res://Materials/xlogo.tres" id="3_qhx0l"]
+[ext_resource type="ArrayMesh" uid="uid://eq244wgndl6d" path="res://Models/xlogo.obj" id="4_ng7yl"]
+[ext_resource type="Material" uid="uid://dxb4afcaclrvg" path="res://Materials/groundbase_fbsand.tres" id="5_4kk48"]
+[ext_resource type="ArrayMesh" uid="uid://1l8884ovqbpv" path="res://Models/groundbase.obj" id="6_r3tv3"]
+[ext_resource type="PackedScene" uid="uid://2mn0py0r535s" path="res://Prefabs/hexgroundbase.tscn" id="7_ng7yl"]
+[ext_resource type="PackedScene" uid="uid://dmjygqbn1k68g" path="res://Prefabs/obstacle_screen.tscn" id="8_4kk48"]
+[ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="9_s5n4r"]
+[ext_resource type="PackedScene" uid="uid://beoeutwfc8vjy" path="res://Prefabs/platform19.tscn" id="10_4turl"]
+[ext_resource type="PackedScene" uid="uid://dfo5v2n8y6ebp" path="res://Prefabs/platform3.tscn" id="11_pkfp3"]
+[ext_resource type="PackedScene" uid="uid://dq2l2uvrk5jlj" path="res://Prefabs/platform7.tscn" id="12_ltj7o"]
+
+[sub_resource type="Environment" id="Environment_1ynxw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Bird" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374831, 1.19209e-07, 10.3295)
+material_override = ExtResource("1_n17gi")
+mesh = ExtResource("2_kxsyy")
+
+[node name="Xlogo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74743, 1.03795, 6.86698)
+material_override = ExtResource("3_qhx0l")
+mesh = ExtResource("4_ng7yl")
+
+[node name="Groundbase" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.439989, 2.38419e-07, -0.762058)
+material_override = ExtResource("5_4kk48")
+mesh = ExtResource("6_r3tv3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.22362, -0.881243, 0.416419, -0.896971, -0.0188992, 0.441685, -0.381362, -0.472285, -0.794676, 0, 31.7555, -355.949)
+shadow_enabled = true
+shadow_blur = 2.274
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1ynxw")
+
+[node name="Hexgroundbase" parent="." instance=ExtResource("7_ng7yl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.82023, 0, -3.81772)
+
+[node name="ObstacleScreen" parent="." instance=ExtResource("8_4kk48")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 37.7394, 8.94138, -36.9101)
+
+[node name="Bird2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.1838, 10.7714, -38.5189)
+material_override = ExtResource("1_n17gi")
+mesh = ExtResource("2_kxsyy")
+
+[node name="Player" parent="." instance=ExtResource("9_s5n4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2917, 10.5212, -34.168)
+
+[node name="PlatLarg" parent="." instance=ExtResource("10_4turl")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 43.7299, 9.52119, -31.579)
+
+[node name="PlatSmol" parent="." instance=ExtResource("11_pkfp3")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 37.7812, 9.52119, -28.6686)
+
+[node name="PlatMed" parent="." instance=ExtResource("12_ltj7o")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 32.7881, 9.52119, -28.2008)
