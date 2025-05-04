@@ -6,7 +6,7 @@ var ray_origin = Vector3()
 var ray_target = Vector3()
 
 func _process(delta):
-	get_tree().call_group("enemies", "target_position", target.global_transform.origin)
+	get_tree().call_group("enemies",aaaa "target_position", target.global_transform.origin)
 
 func _physics_process(delta):
 		# Add ray follow  https://www.youtube.com/watch?v=HX6qpYjwN3M

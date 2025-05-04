@@ -217,26 +217,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.14141, 0)
 
 [node name="Spawner" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0823, -6.85565, -15.6146)
-Enemy = ExtResource("11_ohkwt")
 
 [node name="Spawner2" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.8273, -6.85565, -4.79085)
+visible = false
 Enemy = ExtResource("11_ohkwt")
 
 [node name="Spawner3" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77438, -6.85565, 24.664)
+visible = false
 Enemy = ExtResource("11_ohkwt")
 
 [node name="Spawner4" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9073, -6.85565, 35.5979)
+visible = false
 Enemy = ExtResource("11_ohkwt")
 
 [node name="Spawner5" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.547, -3.79684, 15.7841)
+visible = false
 Enemy = ExtResource("11_ohkwt")
 
 [node name="Spawner6" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249627, -3.59588, -0.386105)
+visible = false
 Enemy = ExtResource("11_ohkwt")
 
 [connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
