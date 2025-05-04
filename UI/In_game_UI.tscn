@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr1aki2r5nitp"]
+
+[ext_resource type="Script" uid="uid://pfl4fjhi5cuc" path="res://UI/in_game_ui.gd" id="1_70j7a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70j7a"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_70j7a")
+
+[node name="HP" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 49.0
+text = "HP
+"
+
+[node name="HealthyBar" type="ProgressBar" parent="HP"]
+modulate = Color(0.842661, 0, 0.0103688, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = 1.0
+offset_right = 400.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/background = SubResource("StyleBoxFlat_70j7a")
+metadata/_edit_use_anchors_ = true
+
+[node name="EXP" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 44.0
+offset_right = 41.0
+offset_bottom = 93.0
+text = "EXP
+"
+
+[node name="XPBar" type="ProgressBar" parent="EXP"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = -2.0
+offset_right = 400.0
+offset_bottom = 25.0

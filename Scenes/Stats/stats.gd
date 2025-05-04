@@ -9,7 +9,7 @@ var currExp = 0
 var expToUpgrade = 1
 signal you_died_signal
 signal upgrade
-
+signal takenDam
 var current_HP = 0
 
 func _ready():
@@ -17,6 +17,7 @@ func _ready():
 	pass
 	
 func take_hit(damage):
+	emit_signal("takenDam")
 	current_HP -= damage
 	print("I'm hitt", current_HP, "/", max_HP)
 	if(current_HP<=0):

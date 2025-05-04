@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3xxguqvxer0h"]
+[gd_scene load_steps=10 format=3 uid="uid://c3xxguqvxer0h"]
 
 [ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_qxjbg"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="2_wcyx1"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="4_wcyx1"]
 [ext_resource type="PackedScene" uid="uid://mvbxi5nnguga" path="res://Scenes/Spawner/spawner.tscn" id="7_ax0xp"]
 [ext_resource type="PackedScene" uid="uid://c5duvjrnlpry" path="res://Scenes/Animations/transition_screen.tscn" id="7_i7xqd"]
+[ext_resource type="PackedScene" uid="uid://cr1aki2r5nitp" path="res://UI/In_game_UI.tscn" id="8_ax0xp"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ek3o3"]
 vertices = PackedVector3Array(-8.98, 0.4, -8.98, -8.98, 0.4, 8.99, 8.99, 0.4, 8.99, 8.99, 0.4, -8.98)
@@ -22,6 +23,7 @@ script = ExtResource("1_qxjbg")
 [node name="Player" parent="." instance=ExtResource("2_wcyx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 _bullet_scene = ExtResource("3_1y5p2")
+health = 50
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)
@@ -59,6 +61,9 @@ size = Vector3(1, 4.37024, 5)
 [node name="Spawner" parent="." instance=ExtResource("7_ax0xp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.12, 0.646173, 3.842)
 
+[node name="CanvasLayer" parent="." instance=ExtResource("8_ax0xp")]
+
 [connection signal="die_from_falling" from="Player" to="." method="_on_player_die_from_falling"]
 [connection signal="die_from_killed" from="Player" to="." method="_on_player_die_from_killed"]
+[connection signal="pleaseUpdateHPToo" from="Player" to="." method="_on_player_please_update_hp_too"]
 [connection signal="new_dead" from="Spawner" to="." method="_on_spawner_new_dead"]
