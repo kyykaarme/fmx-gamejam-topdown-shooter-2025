@@ -24,4 +24,5 @@ func equip_weapon(weapon_to_equip):
 		
 func shoot():
 	if equipped_weapon:
+		print("pewww")
 		equipped_weapon.shoot()

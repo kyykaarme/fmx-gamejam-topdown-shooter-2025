@@ -30,10 +30,10 @@ func _on_in_between_waves_timeout():
 	if enemies_left_in_wave > 0:
 		var enemy = Enemy.instantiate()
 		get_parent().add_child(enemy)
-		enemy.global_transform = global_transform
+		enemy.global_transform.origin = global_transform.origin
 
 		var stats = enemy.get_node("Stats")
-		stats.connect("you_died_signal", Callable(self, "_on_stats_you_died_signal"))
+		stats.connect("you_died_signal", Callable(self, "_on_enemy_died"))
 
 		spawned_enemies += 1
 		enemies_left_in_wave -= 1
