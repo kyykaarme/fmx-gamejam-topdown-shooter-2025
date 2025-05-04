@@ -2,7 +2,7 @@ extends Node3D
 
 @export var Bullet: PackedScene
 @export var muzzle_speed = 30
-@export var delay = 1
+@export var delay = 0.1
 @onready var pos=$Gun/Pos
 @onready var timer = $Timer
 var canShoot = true
@@ -22,9 +22,10 @@ func shoot():
 		scene_root.add_child(instance)
 		canShoot = false
 		timer.start()
+	if delay > 0:
+		delay -= 0.1
 
 
 
 func _on_timer_timeout():
 	canShoot = true
-	timer.wait_time -= 0.1
