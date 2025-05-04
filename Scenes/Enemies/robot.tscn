@@ -1,15 +1,84 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxyhhr1aoonle"]
+[gd_scene load_steps=17 format=3 uid="uid://bxyhhr1aoonle"]
 
-[ext_resource type="Script" uid="uid://caaffumr20a2l" path="res://Scenes/Enemies/enemies.gd" id="1_2imak"]
+[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_2imak"]
 [ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_hndbo"]
 [ext_resource type="Texture2D" uid="uid://cwr3fbr740e0t" path="res://Textures/robot.png" id="2_mgev7"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="3_os6m6"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iunol"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxid2"]
+transparency = 1
+albedo_texture = ExtResource("2_mgev7")
+disable_receive_shadows = true
+billboard_mode = 1
+billboard_keep_scale = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ytnk"]
-size = Vector3(1, 2, 1)
+size = Vector3(1.1698, 2.0683, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ysu7t"]
+radius = 7.35986
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cb5yh"]
+radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksi8q"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.377919, 0.377919, 0.377919, 1)
+metallic = 0.7
+metallic_specular = 0.8
+roughness = 0.5
+
+[sub_resource type="Curve" id="Curve_3bmjk"]
+_data = [Vector2(0.77, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5664s"]
+curve = SubResource("Curve_3bmjk")
+
+[sub_resource type="Curve" id="Curve_uf4al"]
+_data = [Vector2(0, -200), 0.0, 0.0, 0, 0, Vector2(1, 200), 560.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dxjgv"]
+curve = SubResource("Curve_uf4al")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e7ebi"]
+lifetime_randomness = 0.41
+particle_flag_align_y = true
+particle_flag_damping_as_friction = true
+angle_min = -720.0
+angle_max = 405.4
+velocity_pivot = Vector3(0, 1, 0)
+direction = Vector3(0, 1, 0)
+spread = 12.0
+initial_velocity_min = 3.0
+initial_velocity_max = 7.0
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_curve = SubResource("CurveTexture_dxjgv")
+scale_min = 0.15
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_5664s")
+color = Color(0.250789, 0.259106, 0.282165, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.085
+collision_mode = 1
+collision_friction = 0.1
+collision_bounce = 0.7
+collision_use_scale = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_mxl30"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Enemies" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_2imak")
+enemy_speed = 3.0
+attacking_speed = 3
+enemy_damage = 4
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 2.0
@@ -17,10 +86,14 @@ target_desired_distance = 2.0
 path_height_offset = 0.1
 use_3d_avoidance = true
 
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 0.65, -0.00231588, -0.566972, 0.45446)
+material_override = SubResource("StandardMaterial3D_iunol")
+cast_shadow = 3
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
-cast_shadow = 2
-billboard = 1
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_oxid2")
 texture = ExtResource("2_mgev7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -28,10 +101,47 @@ visible = false
 mesh = ExtResource("2_hndbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0435181, 0.0341492, 0)
 shape = SubResource("BoxShape3D_1ytnk")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 
 [node name="Stats" parent="." instance=ExtResource("3_os6m6")]
+max_HP = 3
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_ysu7t")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="HurtArea" type="Area3D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
+shape = SubResource("CapsuleShape3D_cb5yh")
+
+[node name="restingTimer" type="Timer" parent="."]
+
+[node name="Explosion" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.999993, -0.00300028, 0.00208706, 0.00299841, 0.999995, 0.00090048, -0.00208975, -0.000894215, 0.999997, -0.00606975, -0.566251, 0.0349573)
+material_override = SubResource("StandardMaterial3D_ksi8q")
+emitting = false
+amount = 250
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.95
+local_coords = true
+trail_lifetime = 4.5
+process_material = SubResource("ParticleProcessMaterial_e7ebi")
+draw_pass_1 = SubResource("PrismMesh_mxl30")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Explosion"]
+transform = Transform3D(1, 5.31782e-09, 4.88944e-09, 4.56225e-10, 0.999991, 5.82077e-11, -4.65661e-10, 4.83124e-09, 0.999991, -0.00297684, -0.9928, -0.000894003)
+size = Vector3(10, 1, 10)
 
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]

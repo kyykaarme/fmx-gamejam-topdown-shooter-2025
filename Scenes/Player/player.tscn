@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://7gv6q50fuutj"]
 
-[ext_resource type="Script" uid="uid://ewiprybcakb5" path="res://Scenes/Player/player.gd" id="1_1w47b"]
-[ext_resource type="Script" uid="uid://briirfrg1a73j" path="res://Scenes/Player/gun_controller.gd" id="2_a3d8c"]
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_1w47b"]
+[ext_resource type="Script" path="res://Scenes/Player/gun_controller.gd" id="2_a3d8c"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="2_mtuoh"]
 [ext_resource type="PackedScene" uid="uid://cl1w7h80ye6ls" path="res://Scenes/Weapons/Gun.tscn" id="3_xpcdj"]
 [ext_resource type="PackedScene" uid="uid://c5duvjrnlpry" path="res://Scenes/Animations/transition_screen.tscn" id="5_htcer"]

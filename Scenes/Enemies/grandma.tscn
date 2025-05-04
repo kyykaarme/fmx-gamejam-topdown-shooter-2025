@@ -1,0 +1,156 @@
+[gd_scene load_steps=18 format=3 uid="uid://dfjwe42bpotq8"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_pqdxf"]
+[ext_resource type="Texture2D" uid="uid://dwawkw3a5426i" path="res://Textures/grandma/Granma_1.png" id="2_bppql"]
+[ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="3_hcllo"]
+[ext_resource type="Texture2D" uid="uid://dvqlki12npvg5" path="res://Textures/grandma/Granma_2.png" id="3_m1qtm"]
+[ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="4_c2dip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owklk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5a31"]
+size = Vector3(8.75537, 10.1216, 8.73788)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ygs04"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bppql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m1qtm")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sx5h8"]
+radius = 7.35986
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x75md"]
+radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_af1mv"]
+vertex_color_use_as_albedo = true
+metallic = 0.7
+metallic_specular = 0.8
+roughness = 0.85
+
+[sub_resource type="Curve" id="Curve_ub1b6"]
+_data = [Vector2(0.77, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xrtqr"]
+curve = SubResource("Curve_ub1b6")
+
+[sub_resource type="Curve" id="Curve_0wfx8"]
+_data = [Vector2(0, -200), 0.0, 0.0, 0, 0, Vector2(1, 200), 560.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vqjwm"]
+curve = SubResource("Curve_0wfx8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6u1cn"]
+lifetime_randomness = 0.41
+particle_flag_align_y = true
+particle_flag_damping_as_friction = true
+angle_min = -720.0
+angle_max = 405.4
+velocity_pivot = Vector3(0, 1, 0)
+direction = Vector3(0, 1, 0)
+spread = 12.0
+initial_velocity_min = 3.0
+initial_velocity_max = 7.0
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_curve = SubResource("CurveTexture_vqjwm")
+scale_min = 0.15
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_xrtqr")
+color = Color(0.937255, 0.627451, 0.619608, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 1.085
+collision_mode = 1
+collision_friction = 0.1
+collision_bounce = 0.7
+collision_use_scale = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_rnxb3"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Enemies" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_pqdxf")
+enemy_speed = 2.0
+attacking_speed = 2
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 2.0
+target_desired_distance = 2.0
+path_height_offset = 0.1
+use_3d_avoidance = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 1.5, -0.00231588, 1.21991, 0.45446)
+material_override = SubResource("StandardMaterial3D_owklk")
+cast_shadow = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.141064, 1.0673, -0.00630192)
+shape = SubResource("BoxShape3D_t5a31")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.5974, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_ygs04")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.234718
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = ExtResource("3_hcllo")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="Stats" parent="." instance=ExtResource("4_c2dip")]
+max_HP = 6
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_sx5h8")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="HurtArea" type="Area3D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
+shape = SubResource("CapsuleShape3D_x75md")
+
+[node name="restingTimer" type="Timer" parent="."]
+
+[node name="Explosion" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.999993, -0.00300028, 0.00208706, 0.00299841, 0.999995, 0.00090048, -0.00208975, -0.000894215, 0.999997, -0.00606975, 1.12781, 0.0349573)
+material_override = SubResource("StandardMaterial3D_af1mv")
+emitting = false
+amount = 250
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.95
+local_coords = true
+trail_lifetime = 4.5
+process_material = SubResource("ParticleProcessMaterial_6u1cn")
+draw_pass_1 = SubResource("PrismMesh_rnxb3")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Explosion"]
+transform = Transform3D(1, 5.31782e-09, 4.88944e-09, 4.56794e-10, 0.999991, 0, -6.98492e-10, 4.83124e-09, 0.999991, -0.00483515, -1.61256, -0.00145209)
+size = Vector3(10, 1, 10)
+
+[connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]

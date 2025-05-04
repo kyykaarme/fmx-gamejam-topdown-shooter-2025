@@ -19,7 +19,7 @@ func _ready():
 func take_hit(damage):
 	emit_signal("takenDam")
 	current_HP -= damage
-	#print("I'm hitt", current_HP, "/", max_HP)
+	print("I'm hitt", current_HP, "/", max_HP)
 	if(current_HP<=0):
 		die()
 
