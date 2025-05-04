@@ -203,8 +203,10 @@ color = Color(1, 1, 1, 0)
 [node name="Hearts" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51849, 0.00023859, 1.99476)
 material_override = SubResource("StandardMaterial3D_n7a1a")
+emitting = false
 amount = 5
 lifetime = 3.0
+one_shot = true
 explosiveness = 0.3
 process_material = SubResource("ParticleProcessMaterial_7onp1")
 draw_pass_1 = ExtResource("2_2yqfy")
@@ -212,8 +214,10 @@ draw_pass_1 = ExtResource("2_2yqfy")
 [node name="Explosion" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.999993, -0.00300028, 0.00208706, 0.00299841, 0.999995, 0.00090048, -0.00208975, -0.000894215, 0.999997, -0.00606975, 2.38419e-07, -1.9992)
 material_override = SubResource("StandardMaterial3D_w7ql4")
+emitting = false
 amount = 250
 lifetime = 2.0
+one_shot = true
 explosiveness = 0.95
 local_coords = true
 trail_lifetime = 4.5
@@ -232,8 +236,10 @@ shadow_enabled = true
 [node name="Lightning" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00213599, 0.00442886, -3.73125e-05)
 material_override = SubResource("StandardMaterial3D_eihxt")
+emitting = false
 amount = 15
 lifetime = 0.3
+one_shot = true
 explosiveness = 0.1
 process_material = SubResource("ParticleProcessMaterial_dh5b5")
 draw_pass_1 = ExtResource("3_4igjo")
@@ -245,7 +251,9 @@ mesh = ExtResource("4_k11tj")
 [node name="SmokingHeads" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85851, 0.0675426, 1.42809)
 material_override = SubResource("StandardMaterial3D_uw7pt")
+emitting = false
 amount = 10
 lifetime = 5.0
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_m7njk")
 draw_pass_1 = SubResource("SphereMesh_io26u")
