@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2buu5gkjun0e"]
+[gd_scene load_steps=3 format=3 uid="uid://d2buu5gkjun0e"]
 
 [ext_resource type="Script" uid="uid://cy2u4ant7yd3e" path="res://Scenes/Stats/stats.gd" id="1_kexop"]
+[ext_resource type="AudioStream" uid="uid://dfm508fb6wyip" path="res://assets/sounds/hitHurt.wav" id="2_vohig"]
 
 [node name="Stats" type="Node"]
 script = ExtResource("1_kexop")
 max_HP = 10
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vohig")
+volume_db = -0.937
+pitch_scale = 2.94

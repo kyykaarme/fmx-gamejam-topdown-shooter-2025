@@ -6,6 +6,8 @@ extends Node3D
 var ray_origin = Vector3()
 var ray_target = Vector3()
 @onready var playerStat = target.get_node("Stats") as Stats
+@onready var LevelAudio = $LevelAudio
+@onready var RetryAudio = $RetryAudio
 
 func _ready():
 	for spawner in SpawnerHolder.get_children():
@@ -37,12 +39,14 @@ func _physics_process(delta):
 
 
 func _on_player_die_from_falling() -> void:
+	RetryAudio.play()
 	transition.play("fade_out")
 	await transition.animation_finished
 	get_tree().change_scene_to_file("res://you_died_from_falling.tscn")
 
 
 func _on_player_die_from_killed() -> void:
+	RetryAudio.play()
 	transition.play("fade_out")
 	await transition.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/Menu/you_died.tscn")

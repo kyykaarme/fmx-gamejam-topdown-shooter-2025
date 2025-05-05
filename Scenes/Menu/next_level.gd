@@ -7,6 +7,7 @@ func _ready():
 
 
 func _on_next_level_pressed() -> void:
+	$Click.play()
 	transition.play("fade_out")
 	$CanvasLayer.visible = false
 	await transition.animation_finished
@@ -14,6 +15,7 @@ func _on_next_level_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	$Click.play()
 	transition.play("fade_out")
 	$CanvasLayer.visible = false
 	await transition.animation_finished

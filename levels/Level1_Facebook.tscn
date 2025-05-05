@@ -1,11 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://c25x84c63yj7b"]
+[gd_scene load_steps=26 format=3 uid="uid://c25x84c63yj7b"]
 
 [ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_kxhn7"]
 [ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="2_5okk5"]
 [ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="5_gasdr"]
 [ext_resource type="PackedScene" uid="uid://bu1sw7htwcjf3" path="res://Prefabs/platform19.tscn" id="5_qa4id"]
 [ext_resource type="Shader" uid="uid://d0h7xrbncout8" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="6_3bj1t"]
-[ext_resource type="PackedScene" uid="uid://dvlo45255erl" path="res://Prefabs/fb_emoji_like.tscn" id="8_h07x7"]
+[ext_resource type="PackedScene" path="res://Prefabs/fb_emoji_like.tscn" id="8_h07x7"]
 [ext_resource type="PackedScene" uid="uid://ceaaiuq3hqfx8" path="res://Prefabs/platform3.tscn" id="8_yl7nl"]
 [ext_resource type="PackedScene" uid="uid://cqt8hxjcxfb7k" path="res://Prefabs/fb_emoji_angy.tscn" id="9_2knlu"]
 [ext_resource type="PackedScene" uid="uid://cg5q48kj7d8yg" path="res://Prefabs/wackywaveyscreenreal.tscn" id="9_h07x7"]
@@ -55,6 +55,8 @@ cell_size = 0.03
 agent_height = 2.0
 agent_radius = 1.0
 agent_max_climb = 0.05
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_2knlu"]
 
 [node name="Level2" type="Node3D"]
 script = ExtResource("1_kxhn7")
@@ -305,6 +307,12 @@ transform = Transform3D(0.718806, 0, -0.695211, 0, 1, 0, 0.695211, 0, 0.718806, 
 
 [node name="CAGE4" parent="CageHolder" instance=ExtResource("18_h07x7")]
 transform = Transform3D(-0.571753, 0.000429097, -0.820426, 0.00118663, 0.999999, -0.000303968, 0.820425, -0.00114733, -0.571753, 20.5814, 0.910064, 8.85628)
+
+[node name="LevelAudio" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamMP3_2knlu")
+
+[node name="RetryAudio" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamMP3_2knlu")
 
 [connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
 [connection signal="die_from_falling" from="Player" to="." method="_on_player_die_from_falling"]

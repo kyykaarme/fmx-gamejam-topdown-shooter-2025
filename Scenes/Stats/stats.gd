@@ -19,6 +19,7 @@ func _ready():
 	
 func take_hit(damage):
 	emit_signal("takenDam")
+	$Hurt.play()
 	current_HP -= damage
 	print("I'm hitt", current_HP, "/", max_HP)
 	if(current_HP<=0):

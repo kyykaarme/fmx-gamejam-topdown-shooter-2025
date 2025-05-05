@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce5xymbojx4w7"]
+[gd_scene load_steps=7 format=3 uid="uid://ce5xymbojx4w7"]
 
 [ext_resource type="FontFile" uid="uid://t6mmi7ubb1q1" path="res://fonts/GamejamFont-Regular.otf" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://c5i0mrvbl8e8k" path="res://Scenes/Menu/menu_ui.gd" id="1_tself"]
 [ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="2_7jtkx"]
+[ext_resource type="AudioStream" uid="uid://djpbxkpovfem" path="res://assets/sounds/click.wav" id="4_vmek6"]
 
 [sub_resource type="Theme" id="Theme_7vrkn"]
 default_font = ExtResource("1_06t4h")
@@ -60,6 +61,11 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../Play")
 theme = SubResource("Theme_jix8l")
 text = "Credits"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vmek6")
+volume_db = -0.937
+pitch_scale = 2.94
 
 [connection signal="pressed" from="CanvasLayer/MenuUI/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuUI/VBoxContainer/Credits" to="." method="_on_credits_pressed"]

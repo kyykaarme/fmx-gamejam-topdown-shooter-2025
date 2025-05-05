@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cg5usx10g7n7u"]
+[gd_scene load_steps=14 format=3 uid="uid://cg5usx10g7n7u"]
 
 [ext_resource type="Script" uid="uid://ewiprybcakb5" path="res://Scenes/Player/player.gd" id="1_x7h7i"]
 [ext_resource type="Texture2D" uid="uid://cyoripwdolwwk" path="res://Textures/player/Иллюстрация_без_названия.png" id="2_cjexu"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://f2r27oul1bkr" path="res://Textures/player/Иллюстрация_без_названия (1).png" id="3_javfa"]
 [ext_resource type="PackedScene" uid="uid://cl1w7h80ye6ls" path="res://Scenes/Weapons/Gun.tscn" id="4_75m7o"]
 [ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="5_cntsi"]
+[ext_resource type="AudioStream" uid="uid://0x3cy1v2ssok" path="res://assets/sounds/Shoot_1.wav" id="8_hm1jl"]
+[ext_resource type="AudioStream" uid="uid://cwbmqfkgfq30p" path="res://assets/sounds/Run.mp3" id="9_8wovm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mtuoh"]
 
@@ -67,6 +69,21 @@ script = ExtResource("3_foow8")
 StartingWeapon = ExtResource("4_75m7o")
 
 [node name="transition_screen" parent="." instance=ExtResource("5_cntsi")]
+
+[node name="GunShot" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_hm1jl")
+max_db = -1.219
+pitch_scale = 1.83
+
+[node name="Run" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_8wovm")
+max_db = -4.362
+pitch_scale = 2.29
+
+[node name="Jump" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_hm1jl")
+max_db = -1.219
+pitch_scale = 1.83
 
 [connection signal="die_from_falling" from="." to="." method="_on_die_from_falling"]
 [connection signal="die_from_killed" from="." to="." method="_on_die_from_killed"]
