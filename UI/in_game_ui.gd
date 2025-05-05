@@ -13,6 +13,9 @@ func _ready():
 	update()
 	playerStat.takenDam.connect(update)
 	playerStat.gainExp.connect(update)
+	
+func _process(delta):
+	_update_child_count_display()
 
 func update():
 	HealthBar.value = playerStat.current_HP * 100 / playerStat.max_HP

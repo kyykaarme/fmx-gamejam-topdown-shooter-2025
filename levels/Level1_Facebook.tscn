@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="5_gasdr"]
 [ext_resource type="PackedScene" uid="uid://bu1sw7htwcjf3" path="res://Prefabs/platform19.tscn" id="5_qa4id"]
 [ext_resource type="Shader" uid="uid://d0h7xrbncout8" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="6_3bj1t"]
-[ext_resource type="PackedScene" uid="uid://dvlo45255erl" path="res://Prefabs/fb_emoji_like.tscn" id="8_h07x7"]
+[ext_resource type="PackedScene" path="res://Prefabs/fb_emoji_like.tscn" id="8_h07x7"]
 [ext_resource type="PackedScene" uid="uid://ceaaiuq3hqfx8" path="res://Prefabs/platform3.tscn" id="8_yl7nl"]
 [ext_resource type="PackedScene" uid="uid://mvbxi5nnguga" path="res://Scenes/Spawner/spawner.tscn" id="9_vnby0"]
 [ext_resource type="PackedScene" uid="uid://ccgw2fl1elu5v" path="res://Prefabs/platform7.tscn" id="10_cpwkd"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b7go8u3kqm1j8" path="res://Scenes/Enemies/ai_cat.tscn" id="12_uk3tb"]
 [ext_resource type="PackedScene" uid="uid://cg5usx10g7n7u" path="res://Scenes/Player/cartoon_player.tscn" id="16_h8u1d"]
 [ext_resource type="PackedScene" uid="uid://cr1aki2r5nitp" path="res://UI/In_game_UI.tscn" id="16_qesip"]
-[ext_resource type="Script" path="res://levels/cage_holder.gd" id="17_h07x7"]
+[ext_resource type="Script" uid="uid://4p2r44bckktk" path="res://levels/cage_holder.gd" id="17_h07x7"]
 [ext_resource type="PackedScene" uid="uid://b6pbs4yoejcyl" path="res://Scenes/Cage/cage.tscn" id="18_h07x7"]
 [ext_resource type="PackedScene" uid="uid://cncktnbggve0g" path="res://Models/wackwavyscreen.tscn" id="19_2knlu"]
 
