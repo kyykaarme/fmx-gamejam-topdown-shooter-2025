@@ -1,24 +1,32 @@
-[gd_scene load_steps=17 format=3 uid="uid://dfjwe42bpotq8"]
+[gd_scene load_steps=19 format=3 uid="uid://dqt60tukwbd5j"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_pqdxf"]
-[ext_resource type="Texture2D" uid="uid://dwawkw3a5426i" path="res://Textures/grandma/Granma_1.png" id="2_bppql"]
-[ext_resource type="Texture2D" uid="uid://dvqlki12npvg5" path="res://Textures/grandma/Granma_2.png" id="3_m1qtm"]
-[ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="4_c2dip"]
+[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_w8ad8"]
+[ext_resource type="Texture2D" uid="uid://eph5bcuvjpoq" path="res://Textures/trolls/Troll_1.png" id="2_xd3e5"]
+[ext_resource type="Texture2D" uid="uid://nsxjxrc3asa3" path="res://Textures/trolls/Troll_2.png" id="3_lcvel"]
+[ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="4_dp0fe"]
+[ext_resource type="Texture2D" uid="uid://ch3il4sjg84d7" path="res://Textures/trolls/Troll_3.png" id="4_jw8ta"]
+[ext_resource type="Texture2D" uid="uid://ch8waneatxsy2" path="res://Textures/trolls/Troll_4.png" id="5_axc1b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owklk"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ygs04"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqawo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_bppql")
+"texture": ExtResource("2_xd3e5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_m1qtm")
+"texture": ExtResource("3_lcvel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jw8ta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_axc1b")
 }],
 "loop": true,
-"name": &"run",
-"speed": 5.0
+"name": &"default",
+"speed": 3.0
 }]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sx5h8"]
@@ -82,9 +90,10 @@ size = Vector3(0.1, 0.1, 0.1)
 size = Vector3(2.49634, 3.81055, 1.66797)
 
 [node name="Enemies" type="CharacterBody3D" groups=["enemies"]]
-script = ExtResource("1_pqdxf")
-enemy_speed = 2.0
+script = ExtResource("1_w8ad8")
+enemy_speed = 3.0
 attacking_speed = 2
+enemy_damage = 3
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 2.0
@@ -93,7 +102,7 @@ path_height_offset = 0.1
 use_3d_avoidance = true
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 1.5, -0.00231588, 1.71805, 0.0292217)
+transform = Transform3D(1.84, 0, 0, 0, 1.84, 0, 0, 0, 1.104, -0.127353, 1.71805, 0.0292217)
 material_override = SubResource("StandardMaterial3D_owklk")
 cast_shadow = 3
 radius = 0.449717
@@ -101,13 +110,12 @@ radius = 0.449717
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.5974, 0)
 billboard = 1
-sprite_frames = SubResource("SpriteFrames_ygs04")
-animation = &"run"
-autoplay = "run"
-frame_progress = 0.234718
+sprite_frames = SubResource("SpriteFrames_sqawo")
+autoplay = "default"
+frame_progress = 0.670752
 
-[node name="Stats" parent="." instance=ExtResource("4_c2dip")]
-max_HP = 6
+[node name="Stats" parent="." instance=ExtResource("4_dp0fe")]
+max_HP = 5
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4

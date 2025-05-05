@@ -3,11 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://djpo2uhhe4ohs"
-valid=false
+path="res://.godot/imported/Main_theme_low_pitch.mp3-b87a302062668235287bbc6ca3bab509.mp3str"
 
 [deps]
 
 source_file="res://assets/sounds/Main_theme_low_pitch.mp3"
+dest_files=["res://.godot/imported/Main_theme_low_pitch.mp3-b87a302062668235287bbc6ca3bab509.mp3str"]
 
 [params]
 
