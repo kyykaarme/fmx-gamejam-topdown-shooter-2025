@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7go8u3kqm1j8"]
+[gd_scene load_steps=24 format=3 uid="uid://b7go8u3kqm1j8"]
 
 [ext_resource type="Script" uid="uid://caaffumr20a2l" path="res://Scenes/Enemies/enemies.gd" id="1_ohc2x"]
 [ext_resource type="Texture2D" uid="uid://c7a3l1dl1evv0" path="res://Textures/ai_cat/Cat_animation.png" id="3_pef5f"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dumye1h0y1kui" path="res://Textures/ai_cat/Cat_animation3.png" id="5_a7ddu"]
 [ext_resource type="Texture2D" uid="uid://blnee4ijx5agw" path="res://Textures/ai_cat/Cat_animation4.png" id="6_bixby"]
 [ext_resource type="Texture2D" uid="uid://baiq8hrocebc4" path="res://Textures/ai_cat/Cat_animation5.png" id="7_i33fr"]
+[ext_resource type="AudioStream" uid="uid://ormfn2ulvy6k" path="res://assets/sounds/Meow_01.wav" id="8_bccne"]
+[ext_resource type="AudioStream" uid="uid://ixm8ns64jlhs" path="res://assets/sounds/meow_death.wav" id="9_bccne"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7e8f6"]
 
@@ -167,6 +169,16 @@ size = Vector3(10, 1, 10)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0145264, 1.05853, 0)
 shape = SubResource("BoxShape3D_1lsh7")
+
+[node name="Spawn" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_bccne")
+max_db = -8.589
+pitch_scale = 1.72
+
+[node name="Die" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_bccne")
+max_db = -7.692
+pitch_scale = 1.84
 
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

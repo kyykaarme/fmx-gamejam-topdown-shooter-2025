@@ -6,6 +6,8 @@ extends CharacterBody3D
 @onready var timer = $AttackTimer
 @onready var restingTimer = $restingTimer
 @onready var FX = $Explosion
+@onready var Spawn = $Spawn
+@onready var Die = $Die
 
 var gravity = 9.8
 
@@ -16,6 +18,9 @@ enum state {	SEEKING,
 
 var current_state = state.SEEKING
 
+func _ready():
+	Spawn.play()
+	
 func _process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity*delta
@@ -49,6 +54,7 @@ func move_and_attack():
 		
 #Take Hit
 func _on_stats_you_died_signal():
+	Die.play()
 	FX.emitting = true  # start particle effect
 	$CSGSphere3D.visible = false
 	$AnimatedSprite3D.visible = false #Change this when you want to 3D

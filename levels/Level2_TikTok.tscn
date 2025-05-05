@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cdbpe5elrdcji"]
+[gd_scene load_steps=23 format=3 uid="uid://cdbpe5elrdcji"]
 
 [ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_i0110"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="2_3g3xx"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://b6pbs4yoejcyl" path="res://Scenes/Cage/cage.tscn" id="13_e5ygv"]
 [ext_resource type="Script" uid="uid://4p2r44bckktk" path="res://levels/cage_holder.gd" id="13_rbhag"]
 [ext_resource type="PackedScene" uid="uid://c2nat3byhsbkq" path="res://Prefabs/toktiktower.tscn" id="14_e5ygv"]
+[ext_resource type="AudioStream" uid="uid://cl4g5716tv80k" path="res://assets/sounds/Main_theme_low_pitch.wav" id="16_v5pk1"]
+[ext_resource type="AudioStream" uid="uid://bn5773i5bujdv" path="res://assets/sounds/Retry_Music.wav" id="17_g6d73"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -245,7 +247,12 @@ transform = Transform3D(-0.384832, 0, 0.109107, 0, 0.4, 0, -0.109107, 0, -0.3848
 [node name="Toktiktower3" parent="." instance=ExtResource("14_e5ygv")]
 transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, -1.33362, 5.3079, 41.2165)
 
-[node name="LevelAudio" type="AudioListener3D" parent="."]
+[node name="LevelAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("16_v5pk1")
+max_db = -1.0
+
+[node name="RetryAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_g6d73")
 
 [connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
 [connection signal="die_from_falling" from="Player" to="." method="_on_player_die_from_falling"]

@@ -13,6 +13,7 @@ func _ready():
 	for spawner in SpawnerHolder.get_children():
 		if spawner.has_signal("new_dead"):
 			spawner.new_dead.connect(_on_spawner_new_dead)
+	LevelAudio.play()
 	
 
 func _process(delta):
@@ -43,6 +44,7 @@ func _on_player_die_from_falling() -> void:
 	transition.play("fade_out")
 	await transition.animation_finished
 	get_tree().change_scene_to_file("res://you_died_from_falling.tscn")
+	RetryAudio.play()
 
 
 func _on_player_die_from_killed() -> void:
@@ -50,6 +52,7 @@ func _on_player_die_from_killed() -> void:
 	transition.play("fade_out")
 	await transition.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/Menu/you_died.tscn")
+	RetryAudio.play()
 
 
 func _on_spawner_new_dead():

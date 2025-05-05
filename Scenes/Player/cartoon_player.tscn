@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cg5usx10g7n7u"]
+[gd_scene load_steps=15 format=3 uid="uid://cg5usx10g7n7u"]
 
 [ext_resource type="Script" uid="uid://ewiprybcakb5" path="res://Scenes/Player/player.gd" id="1_x7h7i"]
 [ext_resource type="Texture2D" uid="uid://cyoripwdolwwk" path="res://Textures/player/Иллюстрация_без_названия.png" id="2_cjexu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="5_cntsi"]
 [ext_resource type="AudioStream" uid="uid://0x3cy1v2ssok" path="res://assets/sounds/Shoot_1.wav" id="8_hm1jl"]
 [ext_resource type="AudioStream" uid="uid://cwbmqfkgfq30p" path="res://assets/sounds/Run.mp3" id="9_8wovm"]
+[ext_resource type="AudioStream" uid="uid://b82o2q6nf3dcc" path="res://assets/sounds/jump.wav" id="10_agi73"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mtuoh"]
 
@@ -81,7 +82,7 @@ max_db = -4.362
 pitch_scale = 2.29
 
 [node name="Jump" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("8_hm1jl")
+stream = ExtResource("10_agi73")
 max_db = -1.219
 pitch_scale = 1.83
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c25x84c63yj7b"]
+[gd_scene load_steps=27 format=3 uid="uid://c25x84c63yj7b"]
 
 [ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_kxhn7"]
 [ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="2_5okk5"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://cr1aki2r5nitp" path="res://UI/In_game_UI.tscn" id="16_qesip"]
 [ext_resource type="Script" uid="uid://4p2r44bckktk" path="res://levels/cage_holder.gd" id="17_h07x7"]
 [ext_resource type="PackedScene" uid="uid://b6pbs4yoejcyl" path="res://Scenes/Cage/cage.tscn" id="18_h07x7"]
+[ext_resource type="AudioStream" uid="uid://cl4g5716tv80k" path="res://assets/sounds/Main_theme_low_pitch.wav" id="20_cr0cr"]
+[ext_resource type="AudioStream" uid="uid://bn5773i5bujdv" path="res://assets/sounds/Retry_Music.wav" id="21_1sfuh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 sky_top_color = Color(1, 0.429214, 0.823254, 1)
@@ -55,8 +57,6 @@ cell_size = 0.03
 agent_height = 2.0
 agent_radius = 1.0
 agent_max_climb = 0.05
-
-[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_2knlu"]
 
 [node name="Level2" type="Node3D"]
 script = ExtResource("1_kxhn7")
@@ -309,10 +309,11 @@ transform = Transform3D(0.718806, 0, -0.695211, 0, 1, 0, 0.695211, 0, 0.718806, 
 transform = Transform3D(-0.571753, 0.000429097, -0.820426, 0.00118663, 0.999999, -0.000303968, 0.820425, -0.00114733, -0.571753, 20.5814, 0.910064, 8.85628)
 
 [node name="LevelAudio" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStreamMP3_2knlu")
+stream = ExtResource("20_cr0cr")
+max_db = -1.0
 
 [node name="RetryAudio" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStreamMP3_2knlu")
+stream = ExtResource("21_1sfuh")
 
 [connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
 [connection signal="die_from_falling" from="Player" to="." method="_on_player_die_from_falling"]
