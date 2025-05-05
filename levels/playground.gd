@@ -2,9 +2,15 @@ extends Node3D
 @onready var target = $Player
 @onready var transition = $transition_screen
 @onready var Cam = $Camera3d as Camera3D
+@onready var SpawnerHolder = $SpawnHolder
 var ray_origin = Vector3()
 var ray_target = Vector3()
 @onready var playerStat = target.get_node("Stats") as Stats
+
+func _ready():
+	for spawner in SpawnerHolder.get_children():
+		if spawner.has_signal("new_dead"):
+			spawner.new_dead.connect(_on_spawner_new_dead)
 
 func _process(delta):
 	if(target):
@@ -41,9 +47,4 @@ func _on_player_die_from_killed() -> void:
 
 func _on_spawner_new_dead():
 	playerStat.gain_exp(1)
-	print(playerStat.currExp, "/", playerStat.expToUpgrade, "update to level", playerStat.level)
-	$CanvasLayer.update()
-
-
-func _on_player_please_update_hp_too() -> void:
-	$CanvasLayer.update()
+	#print(playerStat.currExp, "/", playerStat.expToUpgrade, "update to level", playerStat.level)

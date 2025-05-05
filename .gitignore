@@ -1,2 +1,45 @@
-# Godot 4+ specific ignores
+# Godot-specific
+.import/
+export.cfg
+export_presets.cfg
+
+# Godot 4 cache and temporary files
 .godot/
+*.godot/tmp_*
+
+# Build output (optional, if you export builds)
+*.exe
+*.apk
+*.x86*
+*.zip
+*.pck
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Linux
+*~
+
+# VSCode / JetBrains IDEs
+.vscode/
+.idea/
+
+# Godot C# (if you're using Mono/C#)
+.mono/
+*.csproj
+*.sln
+*.dll
+*.pdb
+*.mdb
+*.user
+
+# Python (in case you use it in tooling/scripts)
+__pycache__/
+*.py[cod]
+
+# Logs or debug dumps
+*.log

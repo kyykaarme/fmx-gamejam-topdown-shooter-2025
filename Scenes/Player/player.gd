@@ -8,7 +8,6 @@ class_name Player
 
 signal die_from_killed
 signal die_from_falling
-signal pleaseUpdateHPToo
 # Jump & Dash
 var can_double_jump = true
 var is_dashing = false
@@ -79,7 +78,6 @@ func _physics_process(delta):
 
 
 func _on_stats_you_died_signal() -> void:
-	emit_signal("pleaseUpdateHPToo")
 	queue_free()
 	emit_signal("die_from_killed")
 	print("GAME OVER")
@@ -91,9 +89,4 @@ func _fell_off_map():
 
 
 func _on_stats_upgrade():
-	emit_signal("pleaseUpdateHPToo")
 	transition.play("fade_in")
-
-
-func _on_stats_taken_dam() -> void:
-	emit_signal("pleaseUpdateHPToo")

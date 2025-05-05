@@ -1,15 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dfjwe42bpotq8"]
+[gd_scene load_steps=17 format=3 uid="uid://dfjwe42bpotq8"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_pqdxf"]
+[ext_resource type="Script" uid="uid://caaffumr20a2l" path="res://Scenes/Enemies/enemies.gd" id="1_pqdxf"]
 [ext_resource type="Texture2D" uid="uid://dwawkw3a5426i" path="res://Textures/grandma/Granma_1.png" id="2_bppql"]
-[ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="3_hcllo"]
 [ext_resource type="Texture2D" uid="uid://dvqlki12npvg5" path="res://Textures/grandma/Granma_2.png" id="3_m1qtm"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="4_c2dip"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owklk"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_t5a31"]
-size = Vector3(8.75537, 10.1216, 8.73788)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ygs04"]
 animations = [{
@@ -29,7 +25,8 @@ animations = [{
 radius = 7.35986
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x75md"]
-radius = 0.6
+radius = 1.6
+height = 4.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_af1mv"]
 vertex_color_use_as_albedo = true
@@ -81,6 +78,9 @@ collision_use_scale = true
 [sub_resource type="PrismMesh" id="PrismMesh_rnxb3"]
 size = Vector3(0.1, 0.1, 0.1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kmi4j"]
+size = Vector3(2.49634, 3.81055, 1.66797)
+
 [node name="Enemies" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_pqdxf")
 enemy_speed = 2.0
@@ -93,13 +93,10 @@ path_height_offset = 0.1
 use_3d_avoidance = true
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 1.5, -0.00231588, 1.21991, 0.45446)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 1.5, -0.00231588, 1.71805, 0.0292217)
 material_override = SubResource("StandardMaterial3D_owklk")
 cast_shadow = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.141064, 1.0673, -0.00630192)
-shape = SubResource("BoxShape3D_t5a31")
+radius = 0.449717
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.5974, 0)
@@ -108,12 +105,6 @@ sprite_frames = SubResource("SpriteFrames_ygs04")
 animation = &"run"
 autoplay = "run"
 frame_progress = 0.234718
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = ExtResource("3_hcllo")
-
-[node name="RayCast3D" type="RayCast3D" parent="."]
 
 [node name="Stats" parent="." instance=ExtResource("4_c2dip")]
 max_HP = 6
@@ -132,12 +123,13 @@ wait_time = 2.0
 collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95091, 0)
 shape = SubResource("CapsuleShape3D_x75md")
 
 [node name="restingTimer" type="Timer" parent="."]
 
 [node name="Explosion" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.999993, -0.00300028, 0.00208706, 0.00299841, 0.999995, 0.00090048, -0.00208975, -0.000894215, 0.999997, -0.00606975, 1.12781, 0.0349573)
+transform = Transform3D(0.999993, -0.00300028, 0.00208706, 0.00299841, 0.999995, 0.00090048, -0.00208975, -0.000894215, 0.999997, -0.00606975, 3.10457, 0.0349573)
 material_override = SubResource("StandardMaterial3D_af1mv")
 emitting = false
 amount = 250
@@ -154,4 +146,12 @@ draw_pass_1 = SubResource("PrismMesh_rnxb3")
 transform = Transform3D(1, 5.31782e-09, 4.88944e-09, 4.56794e-10, 0.999991, 0, -6.98492e-10, 4.83124e-09, 0.999991, -0.00483515, -1.61256, -0.00145209)
 size = Vector3(10, 1, 10)
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17348, -0.0933533)
+shape = SubResource("BoxShape3D_kmi4j")
+
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
+[connection signal="timeout" from="restingTimer" to="." method="_on_resting_timer_timeout"]

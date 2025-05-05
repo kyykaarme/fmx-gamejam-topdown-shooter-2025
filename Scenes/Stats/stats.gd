@@ -8,6 +8,7 @@ class_name Stats
 var currExp = 0
 var expToUpgrade = 3
 signal you_died_signal
+signal gainExp
 signal upgrade
 signal takenDam
 var current_HP = 0
@@ -21,6 +22,7 @@ func take_hit(damage):
 	current_HP -= damage
 	print("I'm hitt", current_HP, "/", max_HP)
 	if(current_HP<=0):
+		emit_signal("takenDam")
 		die()
 
 func get_required_exp(level):
@@ -31,6 +33,7 @@ func get_required_exp(level):
 
 
 func gain_exp(amount):
+	emit_signal("gainExp")
 	currExp += amount
 	if(currExp >= expToUpgrade):
 		get_upgrade()

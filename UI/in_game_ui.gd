@@ -1,13 +1,16 @@
 extends CanvasLayer
 
-@onready var player = $"../Player"
-@onready var playerStat = player.get_node("Stats") as Stats
+@export var player: Player
+var playerStat
 @onready var HealthBar = $HP/HealthyBar
 @onready var XPBar = $EXP/XPBar
+
 func _ready():
-	HealthBar.value = 100
-	XPBar.value = 0
+	playerStat = player.get_node("Stats") as Stats
+	update()
+	playerStat.takenDam.connect(update)
+	playerStat.gainExp.connect(update)
+
 func update():
 	HealthBar.value = playerStat.current_HP * 100 / playerStat.max_HP
 	XPBar.value = playerStat.currExp * 100 / playerStat.expToUpgrade
-	
