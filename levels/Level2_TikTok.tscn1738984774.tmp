@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cdbpe5elrdcji"]
+[gd_scene load_steps=20 format=3 uid="uid://cdbpe5elrdcji"]
 
 [ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_i0110"]
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="2_3g3xx"]
 [ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="2_gi7rk"]
+[ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="3_vgy8s"]
 [ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="4_o316a"]
 [ext_resource type="Shader" uid="uid://d0h7xrbncout8" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="5_32yag"]
 [ext_resource type="PackedScene" uid="uid://bu1sw7htwcjf3" path="res://Prefabs/platform19.tscn" id="6_qcyv2"]
@@ -20,14 +21,9 @@
 sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
 
 [sub_resource type="Environment" id="Environment_l5pxq"]
-background_mode = 1
-background_color = Color(0.217553, 0.199418, 0.508952, 1)
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
 sky = SubResource("Sky_ivwug")
-glow_enabled = true
-glow_intensity = 1.0
-fog_enabled = true
-fog_light_color = Color(0.66794, 0.518005, 0.784578, 1)
-fog_density = 0.025
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_huyiv"]
 shader = ExtResource("5_32yag")
@@ -60,9 +56,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 [node name="ObstaclesHolder" type="Node3D" parent="."]
 transform = Transform3D(2, 1.78814e-07, 0, 3.72529e-08, 5, -9.53674e-07, -1.11759e-08, -2.38419e-07, 30, 12.0086, 2.95161, -0.0307541)
 
+[node name="BasicBlock37" parent="ObstaclesHolder" instance=ExtResource("3_vgy8s")]
+transform = Transform3D(0.553996, -1.8148e-08, -6.18461e-16, -4.1276e-09, 0.202982, 6.91738e-09, 2.0638e-10, 1.61316e-09, 0.0362669, 22.4219, -0.525073, 0.840335)
+block_color_group = 5
+block_style = 2
+
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)
-light_energy = 0.75
+light_energy = 1.232
 light_indirect_energy = 0.884
 light_volumetric_fog_energy = 0.768
 shadow_enabled = true
@@ -217,18 +218,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20161, -5.20483, 5.62429)
 visible = false
 Enemy = ExtResource("10_3hvkl")
 
+[node name="CAGE" parent="SpawnHolder" instance=ExtResource("13_e5ygv")]
+transform = Transform3D(-0.0657863, 0, -0.997834, 0, 1, 0, 0.997834, 0, -0.0657863, 7.1777, -6.26276, 6.0715)
+
 [node name="CanvasLayer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_jkgk7")]
 player = NodePath("../Player")
-
-[node name="CageHolder" type="Node3D" parent="."]
-
-[node name="CAGE" parent="CageHolder" instance=ExtResource("13_e5ygv")]
-transform = Transform3D(-0.0657863, 0, -0.997834, 0, 1, 0, 0.997834, 0, -0.0657863, 41.9019, 4.03337, 6.0715)
-
-[node name="CAGE2" parent="CageHolder" instance=ExtResource("13_e5ygv")]
-transform = Transform3D(-0.208782, 0, -0.977962, 0, 1, 0, 0.977962, 0, -0.208782, 60.1305, 1.52214, 23.1372)
-
-[node name="CAGE3" parent="CageHolder" instance=ExtResource("13_e5ygv")]
-transform = Transform3D(0.312468, 0, 0.949928, 0, 1, 0, -0.949928, 0, 0.312468, -13.9343, 1.59429, 32.7459)
 
 [connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
