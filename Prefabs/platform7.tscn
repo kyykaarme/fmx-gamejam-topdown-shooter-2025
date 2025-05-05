@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccgw2fl1elu5v"]
 
-[ext_resource type="Material" path="res://Materials/groundlight.tres" id="1_b31oa"]
+[ext_resource type="Material" uid="uid://dcg2ygb1atfgr" path="res://Materials/groundlight.tres" id="1_b31oa"]
 [ext_resource type="ArrayMesh" uid="uid://ccncmx0b8t5sk" path="res://Models/plat_med.obj" id="2_uon3q"]
 
 [node name="PlatMed" type="MeshInstance3D"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 material_override = ExtResource("1_b31oa")
+cast_shadow = 2
 mesh = ExtResource("2_uon3q")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
