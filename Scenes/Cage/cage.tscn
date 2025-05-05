@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://b6pbs4yoejcyl"]
+[gd_scene load_steps=15 format=4 uid="uid://b6pbs4yoejcyl"]
 
 [ext_resource type="Script" uid="uid://bgltfai3c2ygu" path="res://Scenes/Cage/cage.gd" id="1_gme4y"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="2_thds5"]
 [ext_resource type="ArrayMesh" uid="uid://c1b5vrujtejax" path="res://Particles/SpecialFX/models/heart.obj" id="4_ifa4k"]
+[ext_resource type="Material" uid="uid://dybu8u8hsgmlk" path="res://Materials/cage.tres" id="4_y4syy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0s0ky"]
 radius = 1.5
@@ -134,6 +135,7 @@ bones/1/scale = Vector3(1, 1, 1)
 [node name="Cage2" type="MeshInstance3D" parent="GlassDome/Skeleton3D"]
 mesh = SubResource("ArrayMesh_thds5")
 skin = SubResource("Skin_gme4y")
+surface_material_override/0 = ExtResource("4_y4syy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

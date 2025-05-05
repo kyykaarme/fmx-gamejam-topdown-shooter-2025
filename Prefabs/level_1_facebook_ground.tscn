@@ -36,7 +36,7 @@ omni_range = 10.0
 omni_attenuation = 0.8
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29227, 1.07971, -2.51132)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 5.29227, 1.13162, -2.51132)
 light_energy = 5.0
 shadow_enabled = true
 distance_fade_enabled = true
@@ -116,7 +116,7 @@ omni_range = 10.0
 omni_attenuation = 0.8
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61829, 1.05016, -0.533619)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -4.61829, 1.08165, -0.533619)
 light_energy = 5.0
 shadow_enabled = true
 distance_fade_enabled = true
@@ -126,7 +126,7 @@ omni_range = 10.0
 omni_attenuation = 0.8
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.20888, 1.05016, -3.31213)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.20888, 1.08261, -3.31213)
 light_energy = 5.0
 shadow_enabled = true
 distance_fade_enabled = true

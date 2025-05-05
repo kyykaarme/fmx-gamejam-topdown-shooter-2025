@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c25x84c63yj7b"]
+[gd_scene load_steps=23 format=3 uid="uid://c25x84c63yj7b"]
 
 [ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_kxhn7"]
 [ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="2_5okk5"]
@@ -13,11 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bovc721fo4kgv" path="res://Prefabs/level_1_facebook_ground.tscn" id="11_gjgr2"]
 [ext_resource type="PackedScene" uid="uid://bxyhhr1aoonle" path="res://Scenes/Enemies/robot.tscn" id="11_ohkwt"]
 [ext_resource type="PackedScene" uid="uid://b7go8u3kqm1j8" path="res://Scenes/Enemies/ai_cat.tscn" id="12_uk3tb"]
-[ext_resource type="Material" path="res://Materials/cage.tres" id="14_c1428"]
-[ext_resource type="ArrayMesh" uid="uid://dwvqmg5f6e4lp" path="res://Models/cage_Cylinder_007.res" id="15_6ltgd"]
 [ext_resource type="PackedScene" uid="uid://cg5usx10g7n7u" path="res://Scenes/Player/cartoon_player.tscn" id="16_h8u1d"]
 [ext_resource type="PackedScene" uid="uid://cr1aki2r5nitp" path="res://UI/In_game_UI.tscn" id="16_qesip"]
 [ext_resource type="PackedScene" uid="uid://b6pbs4yoejcyl" path="res://Scenes/Cage/cage.tscn" id="18_h07x7"]
+[ext_resource type="PackedScene" uid="uid://cncktnbggve0g" path="res://Models/wackwavyscreen.tscn" id="19_2knlu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 sky_top_color = Color(1, 0.429214, 0.823254, 1)
@@ -33,12 +32,15 @@ sun_curve = 0.191184
 sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
 
 [sub_resource type="Environment" id="Environment_l5pxq"]
-background_mode = 2
-background_color = Color(0.2139, 0.570975, 0.69, 1)
+background_mode = 1
+background_color = Color(0.0752024, 0.263748, 0.325736, 1)
 background_energy_multiplier = 0.75
 sky = SubResource("Sky_ivwug")
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.0
+fog_enabled = true
+fog_light_color = Color(0.373831, 0.58154, 0.752391, 1)
+fog_density = 0.015
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_huyiv"]
 shader = ExtResource("6_3bj1t")
@@ -66,7 +68,6 @@ environment = SubResource("Environment_l5pxq")
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.994916, -0.0342575, -0.0946973, 0.0991553, 0.169006, 0.980614, -0.017589, -0.985019, 0.171544, -0.00693703, 59.5145, -109.348)
 light_color = Color(0.605274, 0.605274, 0.605274, 1)
-light_energy = 2.0
 light_indirect_energy = 0.884
 light_volumetric_fog_energy = 0.768
 shadow_enabled = true
@@ -246,21 +247,6 @@ transform = Transform3D(0.232485, 0, 0.349786, 0, 0.42, 0, -0.349786, 0, 0.23248
 [node name="ObstacleScreen2" parent="." instance=ExtResource("11_a6wvi")]
 transform = Transform3D(0.370255, 0, -0.198271, 0, 0.42, 0, 0.198271, 0, 0.370255, 14.3832, -0.239488, -16.0142)
 
-[node name="Cage_Good" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -38.206, 2.88639, 12.0296)
-material_override = ExtResource("14_c1428")
-mesh = ExtResource("15_6ltgd")
-
-[node name="Cage_Good2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 10.2812, 3.14868, -30.8813)
-material_override = ExtResource("14_c1428")
-mesh = ExtResource("15_6ltgd")
-
-[node name="Cage_Good3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 20.5985, 0.907254, 8.84529)
-material_override = ExtResource("14_c1428")
-mesh = ExtResource("15_6ltgd")
-
 [node name="Player" parent="." instance=ExtResource("16_h8u1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8918, 0.807489, -1.64988)
 
@@ -269,8 +255,22 @@ player = NodePath("../Player")
 
 [node name="transition_screen" parent="." instance=ExtResource("2_5okk5")]
 
-[node name="CAGE" parent="." instance=ExtResource("18_h07x7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7976, -0.19251, -10.3097)
+[node name="wackwavyscreen" parent="." instance=ExtResource("19_2knlu")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -4.0244, -0.192508, 4.9333)
+
+[node name="CageHolder" type="Node3D" parent="."]
+
+[node name="CAGE" parent="CageHolder" instance=ExtResource("18_h07x7")]
+transform = Transform3D(-0.467174, 0, -0.884166, 0, 1, 0, 0.884166, 0, -0.467174, 12.7976, -0.19251, -10.3097)
+
+[node name="CAGE2" parent="CageHolder" instance=ExtResource("18_h07x7")]
+transform = Transform3D(0.400253, 0, 0.916405, 0, 1, 0, -0.916405, 0, 0.400253, -38.5035, 2.87881, 11.8955)
+
+[node name="CAGE3" parent="CageHolder" instance=ExtResource("18_h07x7")]
+transform = Transform3D(0.718806, 0, -0.695211, 0, 1, 0, 0.695211, 0, 0.718806, 10.3242, 3.13039, -30.7268)
+
+[node name="CAGE4" parent="CageHolder" instance=ExtResource("18_h07x7")]
+transform = Transform3D(-0.571753, 0.000429097, -0.820426, 0.00118663, 0.999999, -0.000303968, 0.820425, -0.00114733, -0.571753, 20.5814, 0.910064, 8.85628)
 
 [connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
 [connection signal="die_from_falling" from="Player" to="." method="_on_player_die_from_falling"]

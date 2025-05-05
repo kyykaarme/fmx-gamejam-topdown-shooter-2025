@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cncktnbggve0g"]
+[gd_scene load_steps=4 format=3 uid="uid://cncktnbggve0g"]
 
 [ext_resource type="PackedScene" uid="uid://ssphl3shnvnh" path="res://Models/wackwavyscreen.glb" id="1_lvrlv"]
 [ext_resource type="Script" uid="uid://cq762yarewd1t" path="res://Models/wackwavyscreen.gd" id="2_0qjlp"]
+[ext_resource type="Material" uid="uid://n8hwd37nmgdr" path="res://Materials/obstacle_screen.tres" id="3_a7bgi"]
 
 [node name="wackwavyscreen" instance=ExtResource("1_lvrlv")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = ExtResource("2_0qjlp")
 
-[node name="Skeleton3D" parent="Armature" index="0"]
-bones/1/rotation = Quaternion(0.5369, 0.0138753, 0.0286553, 0.843045)
-bones/2/rotation = Quaternion(-0.608368, 0.0400242, 0.0225884, 0.792323)
-bones/3/rotation = Quaternion(-0.365693, 0.0028903, -0.00464641, 0.930719)
+[node name="WavySign" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("3_a7bgi")
