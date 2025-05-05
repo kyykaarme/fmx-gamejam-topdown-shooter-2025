@@ -69,5 +69,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.93929, 0, 0)
 
 [connection signal="die_from_falling" from="Player" to="." method="_on_player_die_from_falling"]
 [connection signal="die_from_killed" from="Player" to="." method="_on_player_die_from_killed"]
-[connection signal="pleaseUpdateHPToo" from="Player" to="." method="_on_player_please_update_hp_too"]
 [connection signal="new_dead" from="Spawner" to="." method="_on_spawner_new_dead"]

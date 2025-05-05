@@ -1,12 +1,44 @@
-[gd_scene load_steps=15 format=4 uid="uid://b6pbs4yoejcyl"]
+[gd_scene load_steps=21 format=4 uid="uid://b6pbs4yoejcyl"]
 
-[ext_resource type="Script" uid="uid://bgltfai3c2ygu" path="res://Scenes/Cage/cage.gd" id="1_gme4y"]
+[ext_resource type="Script" path="res://Scenes/Cage/cage.gd" id="1_gme4y"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="2_thds5"]
+[ext_resource type="Texture2D" uid="uid://s2do7veccjyy" path="res://Textures/TrappedChild/Animation_ (2).png" id="3_a35b2"]
+[ext_resource type="Texture2D" uid="uid://cbebt7urobfmy" path="res://Textures/TrappedChild/Animation_ (3).png" id="4_5m2bp"]
 [ext_resource type="ArrayMesh" uid="uid://c1b5vrujtejax" path="res://Particles/SpecialFX/models/heart.obj" id="4_ifa4k"]
-[ext_resource type="Material" path="res://Materials/cage.tres" id="4_y4syy"]
+[ext_resource type="Material" uid="uid://dybu8u8hsgmlk" path="res://Materials/cage.tres" id="4_y4syy"]
+[ext_resource type="Texture2D" uid="uid://c0r3sp2jp170r" path="res://Textures/FreeChild/Animation_ (4).png" id="5_u8sq8"]
+[ext_resource type="Texture2D" uid="uid://cruf6kuch5llb" path="res://Textures/FreeChild/Animation_ (5).png" id="6_mc7nu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0s0ky"]
 radius = 1.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hnbrw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_a35b2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5m2bp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3sjem"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_u8sq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mc7nu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gme4y"]
 vertex_color_use_as_albedo = true
@@ -89,7 +121,7 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, -0.00402892, 
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7xnxf"]
 _data = {
-&"Open": SubResource("Animation_cgngq")
+"Open": SubResource("Animation_cgngq")
 }
 
 [node name="CAGE" type="CharacterBody3D"]
@@ -101,6 +133,20 @@ max_HP = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_0s0ky")
+
+[node name="Trapped" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -0.00793254, 1.0686, 0.00913809)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_hnbrw")
+frame_progress = 0.416613
+
+[node name="Freed" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -0.00793254, 1.26464, 0.00913809)
+visible = false
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_3sjem")
+autoplay = "default"
+frame_progress = 0.0943543
 
 [node name="Hearts" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0221988, 0.999754, 0, -0.999754, -0.0221988, 0.106838, 2.59062, -0.172)
@@ -139,7 +185,7 @@ surface_material_override/0 = ExtResource("4_y4syy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_7xnxf")
+"": SubResource("AnimationLibrary_7xnxf")
 }
 
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]
