@@ -1,18 +1,26 @@
-[gd_scene load_steps=17 format=3 uid="uid://bxyhhr1aoonle"]
+[gd_scene load_steps=18 format=3 uid="uid://bxyhhr1aoonle"]
 
-[ext_resource type="Script" uid="uid://caaffumr20a2l" path="res://Scenes/Enemies/enemies.gd" id="1_2imak"]
+[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_2imak"]
+[ext_resource type="Texture2D" uid="uid://dgnx573axigsu" path="res://Textures/robot/Animation_ (1).png" id="2_dksll"]
 [ext_resource type="ArrayMesh" uid="uid://cxrpdgfv1okle" path="res://Models/bird.obj" id="2_hndbo"]
-[ext_resource type="Texture2D" uid="uid://cwr3fbr740e0t" path="res://Textures/robot.png" id="2_mgev7"]
+[ext_resource type="Texture2D" uid="uid://sshd2dh76brk" path="res://Textures/robot/Animation_.png" id="3_bdmj4"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="3_os6m6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iunol"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxid2"]
-transparency = 1
-albedo_texture = ExtResource("2_mgev7")
-disable_receive_shadows = true
-billboard_mode = 1
-billboard_keep_scale = true
+[sub_resource type="SpriteFrames" id="SpriteFrames_60ssk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dksll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bdmj4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ytnk"]
 size = Vector3(1.1698, 2.0683, 1)
@@ -91,10 +99,12 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 0.65, -0.00231588, -0.566972
 material_override = SubResource("StandardMaterial3D_iunol")
 cast_shadow = 3
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_oxid2")
-texture = ExtResource("2_mgev7")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0.58601, 0.0405076, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_60ssk")
+autoplay = "default"
+frame_progress = 0.837545
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -134,6 +144,7 @@ emitting = false
 amount = 250
 lifetime = 2.0
 one_shot = true
+speed_scale = 2.5
 explosiveness = 0.95
 local_coords = true
 trail_lifetime = 4.5
