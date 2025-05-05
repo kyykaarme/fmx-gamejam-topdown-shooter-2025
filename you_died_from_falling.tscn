@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://hv2l7qtdc8t0"]
+
+[ext_resource type="PackedScene" uid="uid://ce5xymbojx4w7" path="res://Scenes/Menu/main_menu.tscn" id="1_5s82s"]
+[ext_resource type="Texture2D" uid="uid://c66f1veya2j06" path="res://assets/Picture.png" id="2_jwunf"]
+
+[node name="Main_Menu" instance=ExtResource("1_5s82s")]
+
+[node name="Play" parent="CanvasLayer/MenuUI/VBoxContainer" index="0"]
+text = "Play again"
+
+[node name="Credits" parent="CanvasLayer/MenuUI/VBoxContainer" index="1"]
+text = "Quit"
+
+[node name="TextureRect" type="TextureRect" parent="." index="2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.49986, 0.498058)
+texture = ExtResource("2_jwunf")

@@ -12,13 +12,7 @@ default_font_size = 35
 default_font = ExtResource("2_821r8")
 default_font_size = 35
 
-[node name="Continue" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Continue" type="CanvasLayer"]
 script = ExtResource("1_821r8")
 
 [node name="transition_screen" parent="." instance=ExtResource("1_n1o2o")]

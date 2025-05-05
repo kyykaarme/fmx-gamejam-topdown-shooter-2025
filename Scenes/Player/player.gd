@@ -89,4 +89,6 @@ func _fell_off_map():
 
 
 func _on_stats_upgrade():
-	transition.play("fade_in")
+	#transition.play("fade_in")
+	SPEED += 1
+	

@@ -11,6 +11,7 @@ func _ready():
 	for spawner in SpawnerHolder.get_children():
 		if spawner.has_signal("new_dead"):
 			spawner.new_dead.connect(_on_spawner_new_dead)
+	
 
 func _process(delta):
 	if(target):
@@ -37,12 +38,14 @@ func _physics_process(delta):
 
 func _on_player_die_from_falling() -> void:
 	transition.play("fade_out")
-	#print("dieeee")
+	await transition.animation_finished
+	get_tree().change_scene_to_file("res://you_died_from_falling.tscn")
 
 
 func _on_player_die_from_killed() -> void:
 	transition.play("fade_out")
-	#print("dieeee")
+	await transition.animation_finished
+	get_tree().change_scene_to_file("res://Scenes/Menu/you_died.tscn")
 
 
 func _on_spawner_new_dead():
@@ -52,4 +55,9 @@ func _on_spawner_new_dead():
 
 func _on_cage_holder_win_level() -> void:
 	transition.play("fade_out")
+	await transition.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/Menu/next_level.tscn")
+	
+
+	
+	
