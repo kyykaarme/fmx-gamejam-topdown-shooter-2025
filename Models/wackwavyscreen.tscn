@@ -10,3 +10,9 @@ script = ExtResource("2_0qjlp")
 
 [node name="WavySign" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("3_a7bgi")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0358123, 5.38135, -0.708365)
+visible = false
+use_collision = true
+size = Vector3(11.2888, 11.7627, 3.81683)
