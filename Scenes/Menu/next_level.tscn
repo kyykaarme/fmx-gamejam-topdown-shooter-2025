@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://4sy2ckagii6g"]
+[gd_scene load_steps=8 format=3 uid="uid://4sy2ckagii6g"]
 
 [ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="1_l0qif"]
 [ext_resource type="Script" uid="uid://c71yyh6pxe8bq" path="res://Scenes/Menu/next_level.gd" id="1_w18xm"]
 [ext_resource type="FontFile" uid="uid://t6mmi7ubb1q1" path="res://fonts/GamejamFont-Regular.otf" id="2_w18xm"]
 [ext_resource type="AudioStream" uid="uid://djpbxkpovfem" path="res://assets/sounds/click.wav" id="4_8yaa1"]
+[ext_resource type="Texture2D" uid="uid://7g0426mo8ep1" path="res://assets/111.png" id="5_57svn"]
 
 [sub_resource type="Theme" id="Theme_ox82g"]
 default_font = ExtResource("2_w18xm")
@@ -70,6 +71,13 @@ text = "Quit"
 stream = ExtResource("4_8yaa1")
 volume_db = -0.937
 pitch_scale = 2.94
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.50053, 0.503018)
+texture = ExtResource("5_57svn")
 
 [connection signal="pressed" from="CanvasLayer/MenuUI/VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuUI/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -315,6 +315,8 @@ max_db = -1.0
 
 [node name="RetryAudio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("21_1sfuh")
+volume_db = 39.619
+max_db = 4.027
 
 [connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
 [connection signal="die_from_falling" from="Player" to="." method="_on_player_die_from_falling"]

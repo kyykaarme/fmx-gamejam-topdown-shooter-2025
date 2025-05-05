@@ -43,7 +43,7 @@ func _on_player_die_from_falling() -> void:
 	RetryAudio.play()
 	transition.play("fade_out")
 	await transition.animation_finished
-	get_tree().change_scene_to_file("res://you_died_from_falling.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu/you_died_from_falling.tscn")
 	RetryAudio.play()
 
 
