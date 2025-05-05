@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c25x84c63yj7b"]
+[gd_scene load_steps=24 format=3 uid="uid://c25x84c63yj7b"]
 
 [ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_kxhn7"]
 [ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="2_5okk5"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b7go8u3kqm1j8" path="res://Scenes/Enemies/ai_cat.tscn" id="12_uk3tb"]
 [ext_resource type="PackedScene" uid="uid://cg5usx10g7n7u" path="res://Scenes/Player/cartoon_player.tscn" id="16_h8u1d"]
 [ext_resource type="PackedScene" uid="uid://cr1aki2r5nitp" path="res://UI/In_game_UI.tscn" id="16_qesip"]
+[ext_resource type="Script" uid="uid://4p2r44bckktk" path="res://levels/cage_holder.gd" id="17_h07x7"]
 [ext_resource type="PackedScene" uid="uid://b6pbs4yoejcyl" path="res://Scenes/Cage/cage.tscn" id="18_h07x7"]
 [ext_resource type="PackedScene" uid="uid://cncktnbggve0g" path="res://Models/wackwavyscreen.tscn" id="19_2knlu"]
 
@@ -58,7 +59,7 @@ agent_max_climb = 0.05
 script = ExtResource("1_kxhn7")
 
 [node name="InBetweenWaves" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 
@@ -214,26 +215,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.87208, 0)
 [node name="Spawner" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2402, -6.85565, -13.5377)
 Enemy = ExtResource("11_ohkwt")
+seconds_between_spawns = 5.0
 
 [node name="Spawner2" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5395, -6.85565, -7.3146)
 Enemy = ExtResource("11_5fx7w")
+seconds_between_spawns = 5.0
 
 [node name="Spawner3" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32181, -6.46002, 16.988)
 Enemy = ExtResource("12_uk3tb")
+seconds_between_spawns = 5.0
 
 [node name="Spawner4" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9073, -0.565693, 35.5979)
 Enemy = ExtResource("12_uk3tb")
+seconds_between_spawns = 5.0
 
 [node name="Spawner5" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.547, -2.90019, 12.2955)
 Enemy = ExtResource("11_ohkwt")
+seconds_between_spawns = 5.0
 
 [node name="Spawner6" parent="SpawnHolder" instance=ExtResource("9_vnby0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5525, -3.15714, -31.5353)
 Enemy = ExtResource("11_ohkwt")
+seconds_between_spawns = 5.0
 
 [node name="ObstacleScreen" parent="." instance=ExtResource("11_a6wvi")]
 transform = Transform3D(0.374332, 0, 0.19046, 0, 0.42, 0, -0.19046, 0, 0.374332, -15.5631, -1.3514, -15.8876)
@@ -250,8 +257,9 @@ transform = Transform3D(0.370255, 0, -0.198271, 0, 0.42, 0, 0.198271, 0, 0.37025
 [node name="Player" parent="." instance=ExtResource("16_h8u1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8918, 0.807489, -1.64988)
 
-[node name="CanvasLayer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_qesip")]
+[node name="CanvasLayer" parent="." node_paths=PackedStringArray("player", "Cages") instance=ExtResource("16_qesip")]
 player = NodePath("../Player")
+Cages = NodePath("../CageHolder")
 
 [node name="transition_screen" parent="." instance=ExtResource("2_5okk5")]
 
@@ -259,6 +267,7 @@ player = NodePath("../Player")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -4.0244, -0.192508, 4.9333)
 
 [node name="CageHolder" type="Node3D" parent="."]
+script = ExtResource("17_h07x7")
 
 [node name="CAGE" parent="CageHolder" instance=ExtResource("18_h07x7")]
 transform = Transform3D(-0.467174, 0, -0.884166, 0, 1, 0, 0.884166, 0, -0.467174, 12.7976, -0.19251, -10.3097)
@@ -275,3 +284,4 @@ transform = Transform3D(-0.571753, 0.000429097, -0.820426, 0.00118663, 0.999999,
 [connection signal="timeout" from="InBetweenWaves" to="." method="_on_in_between_waves_timeout"]
 [connection signal="die_from_falling" from="Player" to="." method="_on_player_die_from_falling"]
 [connection signal="die_from_killed" from="Player" to="." method="_on_player_die_from_killed"]
+[connection signal="winLevel" from="CageHolder" to="." method="_on_cage_holder_win_level"]

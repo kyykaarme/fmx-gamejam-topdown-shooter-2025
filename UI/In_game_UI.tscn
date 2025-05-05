@@ -1,42 +1,55 @@
 [gd_scene load_steps=3 format=3 uid="uid://cr1aki2r5nitp"]
 
 [ext_resource type="Script" uid="uid://pfl4fjhi5cuc" path="res://UI/in_game_ui.gd" id="1_70j7a"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70j7a"]
+[ext_resource type="FontFile" uid="uid://t6mmi7ubb1q1" path="res://fonts/GamejamFont-Regular.otf" id="2_xver3"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_70j7a")
 
 [node name="HP" type="Label" parent="."]
+offset_top = 7.0
 offset_right = 40.0
-offset_bottom = 49.0
-text = "HP
-"
+offset_bottom = 31.3
+theme_override_fonts/font = ExtResource("2_xver3")
+theme_override_font_sizes/font_size = 28
+text = "HP"
 
 [node name="HealthyBar" type="ProgressBar" parent="HP"]
-modulate = Color(0.842661, 0, 0.0103688, 1)
-layout_mode = 0
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.275
+anchor_top = -0.288066
+anchor_right = 0.275
+anchor_bottom = -0.164609
 offset_left = 37.0
 offset_top = 1.0
 offset_right = 400.0
 offset_bottom = 28.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
-theme_override_styles/background = SubResource("StyleBoxFlat_70j7a")
 metadata/_edit_use_anchors_ = true
 
 [node name="EXP" type="Label" parent="."]
-offset_left = 1.0
-offset_top = 44.0
-offset_right = 41.0
-offset_bottom = 93.0
+offset_left = -2.0
+offset_top = 46.0
+offset_right = 45.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("2_xver3")
+theme_override_font_sizes/font_size = 30
 text = "EXP
 "
 
 [node name="XPBar" type="ProgressBar" parent="EXP"]
 modulate = Color(0, 1, 1, 1)
 layout_mode = 0
-offset_left = 37.0
+offset_left = 50.0
 offset_top = -2.0
-offset_right = 400.0
+offset_right = 413.0
 offset_bottom = 25.0
+
+[node name="ChildCountLabel" type="Label" parent="."]
+offset_left = 718.0
+offset_right = 758.0
+offset_bottom = 23.0
+text = "Remain Cages:"

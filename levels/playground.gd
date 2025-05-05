@@ -48,3 +48,8 @@ func _on_player_die_from_killed() -> void:
 func _on_spawner_new_dead():
 	playerStat.gain_exp(1)
 	#print(playerStat.currExp, "/", playerStat.expToUpgrade, "update to level", playerStat.level)
+
+
+func _on_cage_holder_win_level() -> void:
+	transition.play("fade_out")
+	get_tree().change_scene_to_file("res://Scenes/Menu/main_menu.tscn")
