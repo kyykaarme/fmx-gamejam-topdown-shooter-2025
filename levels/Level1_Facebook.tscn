@@ -1,12 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://c25x84c63yj7b"]
+[gd_scene load_steps=25 format=3 uid="uid://c25x84c63yj7b"]
 
 [ext_resource type="Script" uid="uid://c0uhr4jpubgm3" path="res://levels/playground.gd" id="1_kxhn7"]
 [ext_resource type="PackedScene" uid="uid://bgxyenfwy5uc2" path="res://Scenes/Animations/transition_screen.tscn" id="2_5okk5"]
 [ext_resource type="PackedScene" uid="uid://byon8rf4c5fnr" path="res://Scenes/Camera/camera_3d.tscn" id="5_gasdr"]
 [ext_resource type="PackedScene" uid="uid://bu1sw7htwcjf3" path="res://Prefabs/platform19.tscn" id="5_qa4id"]
 [ext_resource type="Shader" uid="uid://d0h7xrbncout8" path="res://Particles/SpecialFX/shaders/new_shader_material.gdshader" id="6_3bj1t"]
-[ext_resource type="PackedScene" path="res://Prefabs/fb_emoji_like.tscn" id="8_h07x7"]
+[ext_resource type="PackedScene" uid="uid://dvlo45255erl" path="res://Prefabs/fb_emoji_like.tscn" id="8_h07x7"]
 [ext_resource type="PackedScene" uid="uid://ceaaiuq3hqfx8" path="res://Prefabs/platform3.tscn" id="8_yl7nl"]
+[ext_resource type="PackedScene" uid="uid://cqt8hxjcxfb7k" path="res://Prefabs/fb_emoji_angy.tscn" id="9_2knlu"]
 [ext_resource type="PackedScene" uid="uid://cg5q48kj7d8yg" path="res://Prefabs/wackywaveyscreenreal.tscn" id="9_h07x7"]
 [ext_resource type="PackedScene" uid="uid://mvbxi5nnguga" path="res://Scenes/Spawner/spawner.tscn" id="9_vnby0"]
 [ext_resource type="PackedScene" uid="uid://ccgw2fl1elu5v" path="res://Prefabs/platform7.tscn" id="10_cpwkd"]
@@ -212,9 +213,6 @@ skeleton = NodePath("../..")
 [node name="fb_emoji_like" parent="NavigationRegion3D" instance=ExtResource("8_h07x7")]
 transform = Transform3D(0.924313, -0.225895, 0.307598, 0, 0.806001, 0.591915, -0.381635, -0.547115, 0.744997, -12.3763, 1.67093, 7.8747)
 
-[node name="fb_emoji_like5" parent="NavigationRegion3D" instance=ExtResource("8_h07x7")]
-transform = Transform3D(0.977634, 0.175955, 0.115204, -0.209997, 0.78659, 0.58067, 0.0115537, -0.591875, 0.805947, -25.5587, 1.71549, 8.6227)
-
 [node name="fb_emoji_like3" parent="NavigationRegion3D" instance=ExtResource("8_h07x7")]
 transform = Transform3D(0.78091, 0.369736, -0.503463, 2.5147e-08, 0.806001, 0.591915, 0.624643, -0.462232, 0.629414, 17.2698, 1.52144, 11.7498)
 
@@ -223,6 +221,18 @@ transform = Transform3D(0.682954, -0.714018, 0.154116, 0.299008, 0.465767, 0.832
 
 [node name="fb_emoji_like2" parent="NavigationRegion3D" instance=ExtResource("8_h07x7")]
 transform = Transform3D(0.927689, 0.13233, 0.349115, -0.345299, 0.659718, 0.667489, -0.141988, -0.739772, 0.657706, -18.5274, 1.57247, -5.79817)
+
+[node name="fb_emoji_like6" parent="NavigationRegion3D" instance=ExtResource("9_2knlu")]
+transform = Transform3D(0.170907, -0.22119, -0.960139, 0.40231, 0.905207, -0.136923, 0.89941, -0.362872, 0.243693, -25.5217, 1.77066, 8.69236)
+
+[node name="fb_emoji_like5" parent="NavigationRegion3D" instance=ExtResource("9_2knlu")]
+transform = Transform3D(-0.538254, 0.530703, -0.654705, 0.270941, 0.844562, 0.461851, 0.798044, 0.0712066, -0.598377, 11.2927, 1.83075, -14.0147)
+
+[node name="fb_emoji_like7" parent="NavigationRegion3D" instance=ExtResource("9_2knlu")]
+transform = Transform3D(0.508095, 1.33973e-08, -0.861301, 0.206544, 0.970821, 0.121843, 0.836169, -0.239804, 0.493269, -36.3033, 8.40941, 35.1663)
+
+[node name="fb_emoji_like8" parent="NavigationRegion3D" instance=ExtResource("9_2knlu")]
+transform = Transform3D(0.0959298, -0.344442, -0.933894, 0.464821, 0.845142, -0.263962, 0.880193, -0.408772, 0.241178, -3.47118, 1.83075, -0.356212)
 
 [node name="wackwavyscreen" parent="." instance=ExtResource("9_h07x7")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -7.98394, -0.261327, -15.3901)
