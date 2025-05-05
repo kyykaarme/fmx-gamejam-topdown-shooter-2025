@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bovc721fo4kgv"]
 
-[ext_resource type="Material" uid="uid://ku4c3puu8nq2" path="res://Materials/ground.tres" id="1_ra5k4"]
+[ext_resource type="Material" uid="uid://d4a8hth58oqum" path="res://Materials/ground.tres" id="1_ra5k4"]
 [ext_resource type="ArrayMesh" uid="uid://bfxitl7ssc5ow" path="res://Models/Level1_Facebook_BaseMesh.obj" id="1_tl1me"]
 [ext_resource type="ArrayMesh" uid="uid://dp8m803oajpju" path="res://Models/Level1_Facebook_ColliderMesh.obj" id="2_1b0ts"]
 

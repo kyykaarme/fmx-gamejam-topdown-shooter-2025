@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://coai1h01xsnss"]
 
-[ext_resource type="PackedScene" uid="uid://b0peceods0337" path="res://Models/cage.glb" id="1_7cmry"]
+[ext_resource type="PackedScene" uid="uid://brk3a3yv2qafj" path="res://Models/cage.glb" id="1_7cmry"]
 [ext_resource type="Material" path="res://Materials/cage.tres" id="2_acb86"]
 
 [node name="cage" instance=ExtResource("1_7cmry")]

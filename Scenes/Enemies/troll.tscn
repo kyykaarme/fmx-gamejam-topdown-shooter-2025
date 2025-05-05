@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://dqt60tukwbd5j"]
+[gd_scene load_steps=20 format=3 uid="uid://dqt60tukwbd5j"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_w8ad8"]
+[ext_resource type="Script" uid="uid://caaffumr20a2l" path="res://Scenes/Enemies/enemies.gd" id="1_w8ad8"]
 [ext_resource type="Texture2D" uid="uid://eph5bcuvjpoq" path="res://Textures/trolls/Troll_1.png" id="2_xd3e5"]
 [ext_resource type="Texture2D" uid="uid://nsxjxrc3asa3" path="res://Textures/trolls/Troll_2.png" id="3_lcvel"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="4_dp0fe"]
 [ext_resource type="Texture2D" uid="uid://ch3il4sjg84d7" path="res://Textures/trolls/Troll_3.png" id="4_jw8ta"]
 [ext_resource type="Texture2D" uid="uid://ch8waneatxsy2" path="res://Textures/trolls/Troll_4.png" id="5_axc1b"]
+[ext_resource type="AudioStream" uid="uid://0ww5ykra8ioj" path="res://assets/sounds/troll.wav" id="7_l5c6f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owklk"]
 
@@ -115,7 +116,7 @@ autoplay = "default"
 frame_progress = 0.670752
 
 [node name="Stats" parent="." instance=ExtResource("4_dp0fe")]
-max_HP = 5
+max_HP = 3
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
@@ -157,6 +158,16 @@ size = Vector3(10, 1, 10)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17348, -0.0933533)
 shape = SubResource("BoxShape3D_kmi4j")
+
+[node name="Spawn" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_l5c6f")
+max_db = -8.875
+pitch_scale = 0.92
+
+[node name="Die" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_l5c6f")
+max_db = -7.446
+pitch_scale = 0.92
 
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

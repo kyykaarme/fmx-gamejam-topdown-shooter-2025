@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgc6vt7wm68wy"]
 
-[ext_resource type="Material" uid="uid://ku4c3puu8nq2" path="res://Materials/ground.tres" id="1_2rt7j"]
+[ext_resource type="Material" uid="uid://d4a8hth58oqum" path="res://Materials/ground.tres" id="1_2rt7j"]
 [ext_resource type="ArrayMesh" uid="uid://bih70k45nguak" path="res://Models/Level2_TikTok_BaseMesh.obj" id="2_j5ahs"]
 [ext_resource type="ArrayMesh" uid="uid://bv5ysoqn7l2dv" path="res://Models/Level2_TikTok_ColliderMesh.obj" id="3_n5wb2"]
 

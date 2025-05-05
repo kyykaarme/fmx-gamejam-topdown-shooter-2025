@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dfjwe42bpotq8"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/enemies.gd" id="1_pqdxf"]
+[ext_resource type="Script" uid="uid://caaffumr20a2l" path="res://Scenes/Enemies/enemies.gd" id="1_pqdxf"]
 [ext_resource type="Texture2D" uid="uid://dwawkw3a5426i" path="res://Textures/grandma/Granma_1.png" id="2_bppql"]
 [ext_resource type="Texture2D" uid="uid://dvqlki12npvg5" path="res://Textures/grandma/Granma_2.png" id="3_m1qtm"]
 [ext_resource type="PackedScene" uid="uid://d2buu5gkjun0e" path="res://Scenes/Stats/Stats.tscn" id="4_c2dip"]
@@ -109,7 +109,7 @@ autoplay = "run"
 frame_progress = 0.234718
 
 [node name="Stats" parent="." instance=ExtResource("4_c2dip")]
-max_HP = 6
+max_HP = 4
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
@@ -154,11 +154,11 @@ shape = SubResource("BoxShape3D_kmi4j")
 
 [node name="Spawn" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_6bmqy")
-max_db = -13.732
+max_db = -17.732
 
 [node name="Die" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_cpbqw")
-max_db = -12.834
+max_db = -17.12
 
 [connection signal="you_died_signal" from="Stats" to="." method="_on_stats_you_died_signal"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

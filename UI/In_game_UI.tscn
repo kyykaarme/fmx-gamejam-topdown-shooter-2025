@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cr1aki2r5nitp"]
 
-[ext_resource type="Script" path="res://UI/in_game_ui.gd" id="1_70j7a"]
+[ext_resource type="Script" uid="uid://pfl4fjhi5cuc" path="res://UI/in_game_ui.gd" id="1_70j7a"]
 [ext_resource type="FontFile" uid="uid://t6mmi7ubb1q1" path="res://fonts/GamejamFont-Regular.otf" id="2_xver3"]
 
 [node name="CanvasLayer" type="CanvasLayer"]

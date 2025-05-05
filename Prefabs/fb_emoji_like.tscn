@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvlo45255erl"]
+[gd_scene load_steps=4 format=3 uid="uid://bpmxy0ekoh2tc"]
 
 [ext_resource type="Material" uid="uid://c3dl652pchjo" path="res://Materials/fb_emoji_like_mat.tres" id="1_i7sag"]
 [ext_resource type="ArrayMesh" uid="uid://b21bs0jwqjpd6" path="res://Models/fbemojisphere.obj" id="2_1xn8i"]
