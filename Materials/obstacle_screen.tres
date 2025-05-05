@@ -1,6 +1,7 @@
-[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://n8hwd37nmgdr"]
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://n8hwd37nmgdr"]
 
 [ext_resource type="Texture2D" uid="uid://c5rptip0w3unf" path="res://Materials/Textures/obstacle_screen_DefaultMaterial_BaseColor.jpg" id="1_35fn6"]
+[ext_resource type="Texture2D" uid="uid://dwlkyehcj4m7m" path="res://Materials/Textures/obstacle_screen_DefaultMaterial_Emissive.jpg" id="2_16k35"]
 [ext_resource type="Texture2D" uid="uid://b27iytmpy6hd4" path="res://Materials/Textures/obstacle_screen_DefaultMaterial_Metallic.jpg" id="2_ya3a8"]
 [ext_resource type="Texture2D" uid="uid://biwqer57uim2t" path="res://Materials/Textures/obstacle_screen_DefaultMaterial_Normal.jpg" id="3_16k35"]
 [ext_resource type="Texture2D" uid="uid://cil4ue6s64qg4" path="res://Materials/Textures/obstacle_screen_DefaultMaterial_Roughness.jpg" id="4_oo4da"]
@@ -10,5 +11,7 @@ albedo_texture = ExtResource("1_35fn6")
 metallic = 1.0
 metallic_texture = ExtResource("2_ya3a8")
 roughness_texture = ExtResource("4_oo4da")
+emission_enabled = true
+emission_texture = ExtResource("2_16k35")
 normal_enabled = true
 normal_texture = ExtResource("3_16k35")

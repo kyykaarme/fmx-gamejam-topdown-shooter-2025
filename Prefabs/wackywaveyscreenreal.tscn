@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg5q48kj7d8yg"]
+
+[ext_resource type="PackedScene" uid="uid://cncktnbggve0g" path="res://Models/wackwavyscreen.tscn" id="1_15jtk"]
+
+[node name="wackwavyscreen" instance=ExtResource("1_15jtk")]
